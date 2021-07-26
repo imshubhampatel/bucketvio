@@ -41,7 +41,7 @@ export function fetchMobiles() {
 
             setTimeout(() => {
                 dispatch(getMobilesSuccess(data.data))
-            }, 1000);
+            }, 2000);
             
         } catch (err) {
             dispatch(getMobilesFailure(err))

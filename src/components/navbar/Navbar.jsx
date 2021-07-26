@@ -35,7 +35,7 @@ export default function Navbar() {
                                     />
                                 </div>
                                 <div className="fa-icon">
-                                    <i class="fas fa-search"></i>
+                                    <i className="fas fa-search"></i>
                                 </div>
                             </div>
                         </div>
@@ -72,11 +72,11 @@ export default function Navbar() {
                         <div className="navigation-cart">
                             <div className="pure-div">
                                 <div className="default-icon">
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i className="fas fa-shopping-cart"></i>
                                 </div>
                                 <div className="pure-div logo-text">
                                     <Link to="/">
-                                        <i class="fas fa-shopping-cart"></i>
+                                        <i className="fas fa-shopping-cart"></i>
                                         <span>Cart</span>
                                     </Link>
                                 </div>

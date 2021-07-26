@@ -1,7 +1,8 @@
 import React from 'react';
+import SkeletonElement from '../../skeleton/SkeletonElement';
 
 export default function ProductList({ product }) {
-    const { images, title, price, camera, size,description, battery, cpu, weight, memory, display } = product;
+    const { images, title, price, camera, size, description, battery, cpu, weight, memory, display } = product;
 
 
     return (
@@ -21,8 +22,8 @@ export default function ProductList({ product }) {
                 <li>{description}</li>
             </div>
             <div className="phone-price">
-                <p>₹ {parseInt(price+10000)} <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
-                <li>₹{parseInt(((price+10000)*10/100)+(price+10000))} </li><span>12% off</span>
+                <p>₹ {parseInt(price + 10000)} <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
+                <li>₹{parseInt(((price + 10000) * 10 / 100) + (price + 10000))} </li><span>12% off</span>
             </div>
         </div>
     )
