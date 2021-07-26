@@ -12,7 +12,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 0,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Huawei Mate 20 Lite 64 GB (Huawei Türkiye Garantili)",
     category: "phone",
@@ -27,7 +27,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 1,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Huawei P20 Lite 64 GB (Huawei Türkiye Garantili)",
     category: "phone",
@@ -42,7 +42,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 2,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Meizu 16TH 64 GB (Meizu Türkiye Garantili)",
     category: "phone",
@@ -57,7 +57,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 3,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Meizu X8 64 GB (Meizu Türkiye Garantili)",
     category: "phone",
@@ -72,7 +72,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 4,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy A7 2018 64 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -87,7 +87,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 5,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy J6 Plus 32 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -102,7 +102,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 6,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Vestel Venus Z20 (Vestel Garantili)",
     category: "phone",
@@ -117,7 +117,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 7,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Xiaomi Mi 8 Lite 128 GB (İthalatçı Garantili)",
     category: "phone",
@@ -132,7 +132,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 8,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Xiaomi Mi 8 Lite 64 GB (İthalatçı Garantili)",
     category: "phone",
@@ -147,7 +147,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 9,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Apple iPhone 7 32 GB (Apple Türkiye Garantili)",
     category: "phone",
@@ -162,7 +162,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 10,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy S10 Plus 128 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -177,7 +177,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 11,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy S10 128 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -192,7 +192,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 12,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy S10e 128 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -207,7 +207,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 13,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy M20 32 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -222,7 +222,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 14,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy S8 (Samsung Türkiye Garantili)",
     category: "phone",
@@ -237,7 +237,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 15,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Huawei P Smart 2019 64 GB (Huawei Türkiye Garantili)",
     category: "phone",
@@ -252,7 +252,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 16,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Xiaomi Mi 8 128 GB (İthalatçı Garantili)",
     category: "phone",
@@ -267,7 +267,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 17,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Apple iPhone 6S Plus 32 GB (Apple Türkiye Garantili)",
     category: "phone",
@@ -282,7 +282,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 18,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Meizu 16 64 GB (Meizu Türkiye Garantili)",
     category: "phone",
@@ -297,7 +297,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 19,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Vestel Venüs E3 (Vestel Türkiye Garantili)",
     category: "phone",
@@ -312,7 +312,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 20,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Asus Zenfone Max Pro ZB602KL 64 GB (Asus Türkiye Garantili)",
     category: "phone",
@@ -327,7 +327,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 21,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Samsung Galaxy Note 9 128 GB (Samsung Türkiye Garantili)",
     category: "phone",
@@ -342,7 +342,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 22,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }, {
     title: "Huawei Mate 20 Lite Dual Sim 64 GB (İthalatçı Garantili)",
     category: "phone",
@@ -357,7 +357,7 @@ const data = [{
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
     id: 23,
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 }];
 
 module.exports = data;

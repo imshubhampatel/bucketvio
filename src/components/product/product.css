@@ -1,0 +1,157 @@
+body{
+    background: #f1f3f6;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+
+
+.sidebar{
+    width: 20%;
+    height: inherit;
+    
+}
+
+li,a,p,input,label,legend,fieldset{
+    font-size: 1.6rem;
+}
+aside{
+    padding: 1rem 0.5rem;
+}
+
+label{
+    display: block;
+    padding: 1rem 0.5rem;
+    background: #fff;
+    margin: 0.1rem;
+}
+fieldset{
+    max-width: 250px;
+    min-width: 200px;
+    margin: 2px 3px;
+    border: none;
+}
+
+legend{
+    width: 99.20%;
+    background: #fff;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+aside button{
+    display: block;
+    background:#24A0ed;
+    width: 99.20%;
+    height: 37px;
+    border: none;
+    border-radius: 2px;
+    margin: 1rem auto;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+/* //////////////////////////////////// */
+
+.parent-product-item{
+    margin-top: 1.2rem;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item{
+    background: #fff;
+    margin-bottom: 0.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.product-item>div{
+    height: 300px;
+}
+
+.phone-images{
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+.phone-price{
+    width: 30%;
+    flex-grow: 2;
+    flex-shrink: 2;
+
+}
+.phone-price li{
+    padding-left: 29px;
+    text-decoration: line-through;
+    font-size: 1.4rem;
+    list-style: none;
+    color: #aaa;
+    font-weight: 400;
+    display: inline-block;
+}
+.phone-price span{
+    color: green;
+    font-weight: 500;
+    padding-left: 8px;
+    font-size: 1.2rem;
+}
+.phone-price p img{
+    width: 100px;
+    display: inline-block;
+    margin-bottom: -2px;
+}
+.phone-about{
+    flex-grow: 3;
+    width: 50%;
+    flex-shrink: 1;
+    padding: 10px;
+}
+
+.product-item img{
+    width: 18rem;
+    height: auto;
+    margin: 1rem 0px;
+
+}
+
+.phone-about h2{
+
+    font-size: 1.8rem;
+    margin:1em 0;
+}
+.phone-about h2:hover{
+    cursor: pointer;
+    color: blue;
+}
+.phone-about li{
+    padding-left: 0.8rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5em;
+    list-style-type: none;
+}
+.phone-about li::before{
+    content:"\2022";
+    color: #aaa;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+.phone-price p{
+    color: #000;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 2.5rem;
+    padding: 10px;
+    margin: 10px;
+
+}
