@@ -9,9 +9,9 @@ import SkeletonSidebar from '../../skeleton/SkeletonSidebar';
 
 export default function Product() {
     const { mobiles: product, loading } = useSelector(state => state.mobiles)
+    const { sortByPrice, sortBy, fastDelivery, outOfStock } = useSelector(state => state.filters)
 
-    const listItem = SortFilter(product)
-
+    const listItem = SortFilter(product, sortBy, sortByPrice, fastDelivery, outOfStock);
 
     return (
         <div className="dashboard container">
@@ -36,7 +36,6 @@ export default function Product() {
                 {
                     loading && new Array(24).fill("").map((n, index) => {
                         return <SkeletonMobile key={index} />
-
                     })
                 }
 
