@@ -75,10 +75,10 @@ export default function Navbar() {
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                                 <div className="pure-div logo-text">
-                                    <a href="/">
+                                    <Link to="/">
                                         <i class="fas fa-shopping-cart"></i>
                                         <span>Cart</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
