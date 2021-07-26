@@ -4,8 +4,6 @@ import ProductList from './ProductList';
 import "./product.css"
 import Sidebar from '../sidebar/Sidebar';
 import SortFilter from '../../utilities/Sortfilter';
-import SkeletonElement from '../../skeleton/SkeletonElement';
-import SkeletonArtical from '../../skeleton/SkeletonArtical';
 import SkeletonMobile from '../../skeleton/SkeletonMobile';
 import SkeletonSidebar from '../../skeleton/SkeletonSidebar';
 
@@ -23,7 +21,6 @@ export default function Product() {
                         ? <SkeletonSidebar />
                         : <Sidebar />
                 }
-                <Sidebar />
             </aside>
             <div className="parent-product-item">
                 {
@@ -37,8 +34,8 @@ export default function Product() {
                     })
                 }
                 {
-                    loading && new Array(24).fill("").map((n) => {
-                        return <SkeletonMobile boxType="title" />
+                    loading && new Array(24).fill("").map((n, index) => {
+                        return <SkeletonMobile key={index} />
 
                     })
                 }

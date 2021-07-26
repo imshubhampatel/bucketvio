@@ -6,34 +6,24 @@ export default function SkeletonSidebar() {
     return (
         <div className="skeleton-wrapper">
             <Shimmer />
-            <div style={{marginLeft:"0"}}>
-                <fieldset>
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                </fieldset>
-                <fieldset>
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-                    <SkeletonElement type="title" />
-
-                </fieldset>
-                <fieldset >
-                    <SkeletonElement type="title" />
-                    <label>
-                        <SkeletonElement type="title" />
-                    </label>
-                    <label>
-                        <SkeletonElement type="title" />
-                    </label>
-                </fieldset>
-            </div>
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <Shimmer />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
+            <SkeletonElement type="title" />
         </div>
     )
 }

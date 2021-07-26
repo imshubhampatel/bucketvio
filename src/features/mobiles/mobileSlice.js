@@ -38,11 +38,9 @@ export function fetchMobiles() {
         try {
             const response = await fetch(`http://localhost:5000/api/v1/data/phones`);
             const data = await response.json();
-
             setTimeout(() => {
                 dispatch(getMobilesSuccess(data.data))
-            }, 2000);
-            
+            }, 500)
         } catch (err) {
             dispatch(getMobilesFailure(err))
         }

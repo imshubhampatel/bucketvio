@@ -12,10 +12,7 @@ export default function SkeletonMobile({ boxType }) {
                 </div>
                 <div className="phone-about">
                     <SkeletonElement type="title" />
-                    <SkeletonElement type="text" />
-                    <SkeletonElement type="text" />
-                    <SkeletonElement type="text" />
-                    <SkeletonElement type="text" />
+                    <br />
                     <SkeletonElement type="text" />
                     <SkeletonElement type="text" />
                     <SkeletonElement type="text" />
