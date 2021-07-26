@@ -1,0 +1,62 @@
+.page404{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background:  url("https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Page.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 9%), 0px 0px 8px 6px rgb(0 0 0 / 48%);
+    color: #fff;
+    text-align: center;
+}
+.page404 h1{
+    margin-bottom: 35px;
+}
+.page404 a{
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    background: #00B6FF;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.page404 .page404-content{
+    padding-top: 11px;
+    position: absolute;
+    top:15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+}
+.parent-error{
+    background:black;
+}
+.parent-error div:empty{
+    width: 50%;
+    z-index: 12;
+    height: 100px;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background: #00E7DC;
+}
+
+/* 00E7DC */
+@media (max-width:530px) {
+    .page404{
+        width: 100vw;
+        height: 100vh;
+        background: url("https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Error-Page.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .parent-error div:empty{
+        display: none;
+    }
+    
+}

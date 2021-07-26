@@ -18,9 +18,10 @@ const mobileSlice = createSlice({
             state.hasErrors = false;
             state.loading = false;
         },
-        getMobilesFailure: (state) => {
+        getMobilesFailure: (state, action) => {
             state.loading = false;
-            state.hasErrors = true;
+            state.hasErrors = action.payload;
+
         }
     }
 })
@@ -29,17 +30,21 @@ export const { getMobiles, getMobilesSuccess, getMobilesFailure } = mobileSlice.
 export const mobileSelector = state => state.mobiles;
 export default mobileSlice.reducer;
 
+
 export function fetchMobiles() {
     return async (dispatch) => {
         dispatch(getMobiles());
+
         try {
             const response = await fetch(`http://localhost:5000/api/v1/data/phones`);
             const data = await response.json();
+
             setTimeout(() => {
                 dispatch(getMobilesSuccess(data.data))
             }, 1000);
-        } catch (e) {
-            dispatch(getMobilesFailure(e))
+            
+        } catch (err) {
+            dispatch(getMobilesFailure(err))
         }
     }
 }

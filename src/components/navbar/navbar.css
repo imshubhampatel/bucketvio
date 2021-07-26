@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--Roboto);
+    line-height: 1.4rem;
+}
+
+li, a, p, span {
+    font-size: 1.6rem;
+}
+
+:root {
+    --Primary-color: #0076ef;
+    --Secondary-color: #eff2f5;
+    --white-color: #ffffff;
+    --gray-color: gray;
+    --yellow-color: rgb(255, 229, 0);
+    --black: #2a2a2a;
+    --Roboto: "Roboto", sans-serif;
+}
+
+/* utilities classes  */
+
+.navigation div:empty {
+    height: 100%;
+    width: 12.4rem;
+    display: inline-block;
+    flex: 1 1 auto;
+}
+
+.pure-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation {
+    width: 100%;
+    height: 5.59rem;
+    background-color: var(--Primary-color);
+    position: fixed;
+    opacity: 1;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    flex: 2 2 auto;
+}
+
+.navbar {
+    display: flex;
+    position: relative;
+}
+
+/* .navigation bar code is here */
+
+.navigation-bar {
+    width: 87.4505rem;
+    height: 5.59rem;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* .navigation logo code is here  */
+
+.navigation-logo {
+    width: 13.5rem;
+    height: 5.4031rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-logo {
+    width: 7.5rem;
+    height: 5.199rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-logo a:first-child>img {
+    margin-bottom: -3px;
+    margin-left: -1px;
+}
+
+.navigation-logo img {
+    width: 7.6rem;
+    height: 2rem;
+}
+
+.nav-logo a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-style: italic;
+    display: inline-block;
+}
+
+.nav-logo a:last-child {
+    font-size: 1.1rem;
+    margin-left: -2px;
+}
+
+.nav-logo span {
+    color: var(--yellow-color);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.nav-logo a:last-child img {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 2px;
+    margin-right: -2px;
+    margin-bottom: -1px;
+}
+
+/* .navigation search bar code is here  */
+
+.navigation-search {
+    width: 33.4526rem;
+    height: 5.4031rem;
+    margin: 0px 3.7rem 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+    height: 3.5993rem;
+    background: var(--white-color);
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.parent-input input {
+    border: transparent;
+    width: 100%;
+    padding: 0 1.5rem;
+    border-radius: 2px;
+}
+
+.parent-input input:focus {
+    outline: none;
+}
+
+.parent-input:first-child {
+    width: 100%;
+    display: flex;
+}
+
+.fa-icon i {
+    color: var(--Primary-color);
+    font-size: 1.8rem;
+    padding: 8px 12px 0 0px;
+}
+
+/* .navigation login code is here  */
+
+.navigation-login {
+    width: 12.344rem;
+    height: 5.4031rem;
+    margin: 0rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent-drop-down, .parent-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.parent-login {
+    height: auto;
+}
+
+.parent-login a {
+    color: #2874f0;
+    width: 100%;
+    font-weight: 500;
+    line-height: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 32px;
+    padding: 5px 40px;
+    text-transform: capitalize;
+    text-decoration: none;
+    border: 1px solid #dbdbdb;
+}
+
+/* .navigation-more is styling here  */
+
+.navigation-more {
+    width: 5.159rem;
+    height: 5.401rem;
+    margin: 0 2rem;
+}
+
+.pure-div {
+    color: var(--white-color);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+div.type-more::after {
+    content: "";
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent white white transparent;
+    margin-left: 5px;
+    margin-top: 1px;
+    transition: all 0.2s ease-in-out;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.navigation-more:hover {
+    cursor: pointer;
+}
+
+div.navigation-more:hover .type-more::after {
+    transform: rotate(-130deg);
+    margin-top: 5px;
+}
+
+/* navigation cart style is here  */
+
+.navigation-cart {
+    width: 6.220rem;
+    height: 5.4031rem;
+    margin: 0 2rem;
+}
+
+.navigation-cart div {
+    display: inline-block;
+    color: var(--white-color);
+}
+
+div.pure-div div a {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.default-icon i:only-of-type {
+    font-size: 1.444rem;
+    color: white;
+}
+
+.navigation-cart a{
+    justify-content: space-around;
+
+}
+
+.navigation-cart div div {
+    display: none;
+}
+
+.pure-div div.pure-div {
+    display: block;
+}
+
+.default-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-cart .pure-div .default-icon i:only-of-type {
+    display: inline-block;
+    color: var(--white-color);
+    margin: 2rem 5rem 0 -14px;
+}
+
+.parent-login span img {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+@media (max-width:890px) {
+    .navigation-bar {
+        width: 100%;
+    }
+    .navigation-cart div div.pure-div {
+        display: none;
+    }
+    .navigation-cart div div {
+        display: block;
+    }
+    .navigation-search {
+        margin: 0 5px;
+        flex-shrink: 1;
+    }
+    .navigation-search div div input {
+        min-width: 200px;
+    }
+    .parent-login a {
+        display: none;
+    }
+    .parent-login span img {
+        display: block;
+    }
+    .navigation-login {
+        flex-shrink: 8;
+        width: calc(100%-30px);
+    }
+}
+
+@media(max-width:554px) {
+    .navigation-more {
+        margin: 0 8px;
+    }
+    .navigation-more div div:empty {
+        display: block;
+    }
+    .navigation-cart {
+        margin-left: 1rem;
+    }
+    .navigation-login {
+        margin: 0 10px;
+    }
+    .navigation-logo {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+}
+
+.random{
+    width: 100%;
+    height:1000px;
+}
