@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ProductList({ product }) {
-    const { image, title, price, camera, size, instock, delivery, description, battery, cpu, weight, memory, display } = product;
+    const { image, title, price, camera, size, instock, delivery, cpu, weight, memory, display } = product;
 
 
     return (
@@ -16,15 +16,12 @@ export default function ProductList({ product }) {
                 <li>{size}</li>
                 <li>{camera}</li>
                 <li>{cpu}</li>
-                <li>{battery}</li>
                 <li>{weight}</li>
-                <li>{price}</li>
-                <li> instock {instock}</li>
-                <li>{delivery}</li>
-                <li>{description}</li>
+                <li className="price-seen"><span>₹{parseInt(price)},999</span></li>
+                <li>Product :  {instock ? "Instock" : 'Out of stock'}</li>
             </div>
             <div className="phone-price">
-                <p>₹ {parseInt((price * 1000) - ((price * 1000) / 10))}  <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
+                <p>₹ {parseInt(price)},999 <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
                 <li>₹{parseInt((price * 1000))} </li><span>10% off</span>
             </div>
         </div>

@@ -40,7 +40,7 @@ export function fetchMobiles() {
             const data = await response.json();
             setTimeout(() => {
                 dispatch(getMobilesSuccess(data.data))
-            }, 500)
+            }, 1000)
         } catch (err) {
             dispatch(getMobilesFailure(err))
         }

@@ -6,16 +6,21 @@ import Sidebar from '../sidebar/Sidebar';
 import SortFilter from '../../utilities/Sortfilter';
 import SkeletonMobile from '../../skeleton/SkeletonMobile';
 import SkeletonSidebar from '../../skeleton/SkeletonSidebar';
+import MobileSidebar from '../sidebar/MobileSidebar';
+
+
 
 export default function Product() {
-    const { mobiles: product, loading } = useSelector(state => state.mobiles)
-    const { sortByPrice, sortBy, fastDelivery, outOfStock } = useSelector(state => state.filters)
 
-    const listItem = SortFilter(product, sortBy, sortByPrice, fastDelivery, outOfStock);
+    const { mobiles: product, loading } = useSelector(state => state.mobiles)
+    const { sortByPrice, sortBy, showFastDelivery, showOutOfStock } = useSelector(state => state.filters)
+
+    const listItem = SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery);
 
     return (
         <div className="dashboard container">
-            <aside className="sidebar">
+            <MobileSidebar />
+            <aside className={`sidebar top2`}>
                 {
                     loading
                         ? <SkeletonSidebar />

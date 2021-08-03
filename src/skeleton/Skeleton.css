@@ -62,10 +62,12 @@
     position: absolute ;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 200%;
     height: 100%;
     display: inline-block;
     animation: loading 2.5s infinite;
+    animation-delay: 0s;
+    animation-duration: 3s;
 }
 .shimmer{
     width: 100%;
@@ -76,6 +78,6 @@
 @keyframes loading {
     0%{transform: translateX(-150%);}
     50%{transform:translateX(70%);}
-    100%{transform:translateX(150%);}
+    100%{transform:translateX(200%);}
     
 }

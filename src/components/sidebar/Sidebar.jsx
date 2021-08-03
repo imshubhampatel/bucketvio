@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterSelecter, setFastDevlivery, setOutOfStock, setSortBy, setSortByPrice } from '../../features/filters/filterSlice'
+import { filterSelecter, setShowFastDelivery, setShowOutOfStock, setSortBy, setSortByPrice } from '../../features/filters/filterSlice'
 import "./sidebar.css"
 
 export default function Sidebar() {
@@ -9,8 +9,8 @@ export default function Sidebar() {
     const dispatch = useDispatch()
 
     return (
-        <>
-            <fieldset>
+        <div className="side-filter">
+            <fieldset className="mobile-filter">
                 <legend>FILTERS</legend>
                 <label><input type="checkbox" name="category" checked={sortBy && sortBy === "apple"} onChange={() => dispatch(setSortBy("apple"))} />Apple</label>
                 <label><input type="checkbox" name="category" checked={sortBy && sortBy === "huawei"} onChange={() => dispatch(setSortBy("huawei"))} />Huawei</label>
@@ -21,22 +21,22 @@ export default function Sidebar() {
                 <label><input type="checkbox" name="category" checked={sortBy && sortBy === "asus"} onChange={() => dispatch(setSortBy("asus"))} />Asus</label>
                 <button className="filterbtn" onClick={() => dispatch(setSortBy(null))}>Clear Filter</button>
             </fieldset>
-            <fieldset>
+            <fieldset className="price-filter">
                 <legend>SORT BY</legend>
                 <label><input type="checkbox" name="priceTracker" checked={sortByPrice && sortByPrice === "HighToLow"} onChange={() => dispatch(setSortByPrice("HighToLow"))} />Price - High to Low</label>
                 <label><input type="checkbox" name="priceTracker" checked={sortByPrice && sortByPrice === "LowToHigh"} onChange={() => dispatch(setSortByPrice("LowToHigh"))} />Price - Low to High</label>
                 <button className="filterbtn" onClick={() => dispatch(setSortByPrice(null))} >Clear Filter </button>
             </fieldset>
 
-            <fieldset >
+            <fieldset className="stock-filter" >
                 <legend> FILTERS </legend>
                 <label>
-                    <input type="checkbox" onChange={() => dispatch(setOutOfStock())} /> Out of Stock
+                    <input type="checkbox" onChange={() => dispatch(setShowOutOfStock())} /> Out of Stock
                 </label>
                 <label>
-                    <input type="checkbox" onChange={() => dispatch(setFastDevlivery())} />Fast Delivery Only
+                    <input type="checkbox" onChange={() => dispatch(setShowFastDelivery())} />Fast Delivery Only
                 </label>
             </fieldset>
-        </>
+        </div>
     )
 }

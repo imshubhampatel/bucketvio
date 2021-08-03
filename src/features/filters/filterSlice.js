@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
     sortBy: null,
     sortByPrice: null,
-    fastDelivery: false,
-    outOfStock: false,
+    showFastDelivery: false,
+    showOutOfStock: false,
 };
 
 const filterSlice = createSlice({
@@ -14,20 +14,20 @@ const filterSlice = createSlice({
         setSortBy: (state, action) => {
             state.sortBy = action.payload;
         },
-        setFastDevlivery: (state) => {
-            state.fastDelivery = !state.fastDelivery;
-        },
-        setOutOfStock: (state) => {
-            state.outOfStock = !state.outOfStock;
-
-        },
         setSortByPrice: (state, action) => {
             state.sortByPrice = action.payload;
+        },
+        setShowFastDelivery: (state) => {
+            state.showFastDelivery = !state.showFastDelivery;
+        },
+        setShowOutOfStock: (state) => {
+            state.showOutOfStock = !state.showOutOfStock;
+
         }
     }
 })
 
-export const { setFastDevlivery, setOutOfStock, setSortBy, setSortByPrice } = filterSlice.actions;
+export const { setShowFastDelivery, setShowOutOfStock, setSortBy, setSortByPrice } = filterSlice.actions;
 export const filterSelecter = state => state.filters;
 export default filterSlice.reducer;
 
