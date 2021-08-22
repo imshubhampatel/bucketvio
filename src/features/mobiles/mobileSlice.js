@@ -21,7 +21,6 @@ const mobileSlice = createSlice({
         getMobilesFailure: (state, action) => {
             state.loading = false;
             state.hasErrors = action.payload;
-
         }
     }
 })

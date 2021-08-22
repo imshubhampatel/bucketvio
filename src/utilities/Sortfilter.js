@@ -1,5 +1,4 @@
 export default function SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery) {
-    console.log("functin", showOutOfStock, showFastDelivery)
 
     function getSortedPriceData(product, sortByPrice) {
         if (sortByPrice && sortByPrice === "LowToHigh") {

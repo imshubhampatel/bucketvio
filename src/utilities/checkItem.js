@@ -1,0 +1,1 @@
+export const checkItemInObject = (item, obj) => obj.includes(item)
