@@ -13,7 +13,7 @@ export default function ProductList({ product }) {
         <>
             <Link to={
                 {
-                    pathname: `${url}/${title.replaceAll(" ", "-")}/dp/id?=${product.id}`,
+                    pathname: `${url}/${title.replaceAll(" ", "-")}/dp/id?=${id}`,
                     state: { product }
                 }
             }>

@@ -1,1 +1,1 @@
-export const checkItemInObject = (item, obj) => obj.includes(item)
+export const checkItemInObject = (idsList, obj) => idsList.includes(obj.id);

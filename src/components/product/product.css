@@ -455,9 +455,15 @@ a {
     background: #fd6f11;
     color: white;
 }
+.button-cart a{
+    color: white;
+}
 
 .cart-and-wishlist i{
     margin-top: -20px;
     padding-right: 10px;
+}
 
+.button-wishlist a{
+    color: #fff;
 }

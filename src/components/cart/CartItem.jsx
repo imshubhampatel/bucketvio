@@ -1,8 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { removeItemFromCart, increaseOneMore, dicreaseOneMore } from '../../features/cart/cartSlice';
+import { addToWishlist } from '../../features/wishlist/wishlistSlice';
 
 export default function CartItem({ product }) {
-    const { id, image, title, price, camera, size, instock, cpu, weight, memory, display } = product;
-    console.log((parseInt(price)))
+    const { image, quantity, title, price, memory } = product;
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -10,7 +13,16 @@ export default function CartItem({ product }) {
                 <div className="img-and-btn">
                     <div className="img-crt"><img src={image} alt="myImage" /></div>
                     <div className="btn-crt">
-                        <div className="crt-btn-crl"><span>+</span>1<span>-</span> </div>
+                        <div className="crt-btn-crl">
+                            <div className="increase" onClick={() => dispatch(increaseOneMore(product))}>+</div>
+                            <div className="quantity">{quantity}</div>
+                            {
+                                product.quantity === 1
+                                    ? < div className="dicrease">-</div>
+                                    : < div className="dicrease" onClick={() => dispatch(dicreaseOneMore(product))}>-</div>
+
+                            }
+                        </div>
                     </div>
                 </div>
                 <div className="cart-txt">
@@ -22,8 +34,8 @@ export default function CartItem({ product }) {
                     <h4> <span style={{ marginLeft: "0", fontSize: "1.3rem", color: "green", fontWeight: "500" }}>3
                         offers applied</span></h4>
                     <div className="last-crt">
-                        <button>SAVE FOR LATER</button>
-                        <button>REMOVE</button>
+                        <button onClick={() => { dispatch(addToWishlist(product)); dispatch(removeItemFromCart(product)); }}>SAVE FOR LATER</button>
+                        <button onClick={() => dispatch(removeItemFromCart(product))}>REMOVE</button>
                     </div>
                 </div>
                 <div className="cart-plc">

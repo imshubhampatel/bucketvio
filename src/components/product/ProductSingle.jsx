@@ -1,20 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { addItemInCart } from '../../features/cart/cartSlice';
+import { checkItemInObject } from '../../utilities/checkItem';
+import { Link } from 'react-router-dom';
+import { removeToWishlist } from '../../features/wishlist/wishlistSlice';
 
 export default function Cart() {
+
+    const { cartItemId } = useSelector(state => state.cart)
+
     const location = useLocation();
     const dispatch = useDispatch();
-    // console.log(location)
-    const { pathname, search } = location
-    // console.log(search)
-    const { product } = location.state
 
-    const { id, image, title, price, camera, size, instock, cpu, weight, memory, display } = product;
+    const { product } = location.state
+    const { image, title, price, camera, size, instock, cpu, weight, memory, display } = product;
     const [device, setDevice] = useState(image);
 
+    console.log("check", checkItemInObject(cartItemId, product))
     return (
         <div className="product-item-detail">
             <div className="phone-images images-detail">
@@ -27,8 +31,14 @@ export default function Cart() {
                     <img src={device} alt="" />
                 </div>
                 <div className="cart-and-wishlist">
-                    <div className="button-cart" onClick={() => dispatch(addItemInCart(product))}><div><span><i className="fas fa-shopping-cart"></i></span>Add to Cart</div></div>
-                    <div className="button-wishlist"><div><span><i className="fas fa-bolt"></i></span>Add to Wishlist</div></div>
+                    {
+                        checkItemInObject(cartItemId, product)
+                            ? <div className="button-cart"><div><Link to="/cart"><span><i className="fas fa-shopping-cart"></i></span>GO TO CART</Link></div></div>
+                            : <div className="button-cart" onClick={() => { dispatch(addItemInCart(product)); dispatch(removeToWishlist(product)) }}><div><span><i className="fas fa-shopping-cart"></i></span>ADD TO CART</div></div>
+                    }
+                    {
+                        <div className="button-wishlist"><div><span><i className="fas fa-bolt"></i></span>BUY NOW</div></div>
+                    }
                 </div>
             </div>
             <div className="phone-about">

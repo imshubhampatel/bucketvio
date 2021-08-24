@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
     loading: false,
-    hasErrors: false,
+    hasErrors: null,
+    mobilesId: [],
     mobiles: []
 };
 
@@ -14,7 +15,9 @@ const mobileSlice = createSlice({
             state.loading = true;
         },
         getMobilesSuccess: (state, action) => {
+            const mobileIds = action.payload.map(item => item.id)
             state.mobiles = action.payload;
+            state.mobilesId = mobileIds;
             state.hasErrors = false;
             state.loading = false;
         },

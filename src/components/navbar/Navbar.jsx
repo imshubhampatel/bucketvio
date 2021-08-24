@@ -43,12 +43,14 @@ export default function Navbar() {
                             <div className="parent-drop-down">
                                 <div className="parent-login">
                                     <Link to="/login">login</Link>
-                                    <span>
-                                        <img
-                                            src="https://freesvg.org/img/clarity-shutdown-icon.png"
-                                            alt="logout"
-                                        />
-                                    </span>
+                                    <Link to="/login">
+                                        <span>
+                                            <img
+                                                src="https://freesvg.org/img/clarity-shutdown-icon.png"
+                                                alt="logout"
+                                            />
+                                        </span>
+                                    </Link>
                                 </div>
                                 {/* <div className="children-drop-down">
                                     <div><div> New customer </div><div><span>Sign up</span></div></div>

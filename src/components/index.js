@@ -8,5 +8,6 @@ import Page404 from "./page404/Page404";
 import Navbar from "./navbar/Navbar";
 import Dashboard from "./home/Dashboard";
 import PriceDetail from "./cart/PriceDetail";
+import EmptyCart from "./cart/EmptyCart";
 
-export { CartItem, Product, Wishlist, Cart, WishlistItem, PriceDetail, Page404, Navbar, Dashboard, ProductSingle };
+export { CartItem, Product, Wishlist, Cart, WishlistItem, EmptyCart, PriceDetail, Page404, Navbar, Dashboard, ProductSingle };
