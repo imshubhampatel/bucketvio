@@ -7,15 +7,15 @@
 
 .cart-item {
     width: 100%;
-    background: #fff;
-    box-shadow: 0px 0px 2px 0px #aaa;
+    background: var(--white-color);
+    box-shadow: 0px 0px 2px 0px var(--medium-gray);
 }
 
 .cart-up {
     display: grid;
     grid-template-columns: 2fr 2fr 3fr;
     padding: 3px 5px;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid var(--medium-gray);
 }
 
 .cart-up h3 {
@@ -48,7 +48,7 @@
 }
 
 .cart-up span h3 {
-    border: 1px solid #aaa;
+    border: 1px solid var(--medium-gray);
     font-size: 1.4rem;
     padding: 10px;
     font-weight: 700;
@@ -74,7 +74,7 @@
 .cart-mid {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    border-bottom: 0.1px solid #ddd;
+    border-bottom: 0.1px solid var(--light-gray);
     padding: 10px;
 }
 
@@ -95,7 +95,7 @@ div.quantity {
     height: 30px;
     padding: 0 10px;
     flex-grow: 1;
-    border: 1px solid #ddd;
+    border: 1px solid var(--light-gray);
     justify-content: center;
     align-items: center;
     margin: 1rem;
@@ -106,7 +106,7 @@ div.quantity {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 1px solid var(--light-gray);
     justify-content: center;
     align-items: center;
     margin: 1rem;
@@ -125,7 +125,7 @@ div.quantity {
 }
 
 .cart-txt h3 {
-    color: #000;
+    color: var(--original-black);
     font-size: 1.6rem;
     letter-spacing: 0px;
     font-family: var(--Roboto);
@@ -133,14 +133,14 @@ div.quantity {
 }
 
 .cart-txt h3:hover {
-    color: blue;
+    color: var(--Primary-color);
     cursor: pointer;
 }
 
 .cart-txt p {
     font-size: 1.3rem;
     font-weight: 500;
-    color: #999;
+    color: var(--gray);
     font-family: var(--Roboto);
     letter-spacing: 0px;
     margin: 1rem 0;
@@ -162,7 +162,7 @@ div.quantity {
 }
 
 .cart-txt h2 span {
-    color: #999;
+    color: var(--gray);
     font-size: 1.4rem;
     margin-left: 0.5rem;
 }
@@ -194,11 +194,11 @@ div.quantity {
     border: none;
     font-size: 1.6rem;
     font-weight: 700;
-    color: #444;
+    color: var(--gray);
 }
 
 .last-crt button:hover {
-    color: blue;
+    color: var(--Primary-color);
     cursor: pointer;
 }
 
@@ -214,7 +214,7 @@ div.quantity {
 }
 
 .cart-plc p {
-    color: #999;
+    color: var(--gray);
     letter-spacing: 0;
     font-size: 1.4rem;
     font-family: var(--Roboto);
@@ -248,13 +248,13 @@ div.quantity {
 }
 
 .price-details {
-    background: #fff;
+    background: var(--white-color);
     height: 300px;
     width: 30%;
     margin: 0 40px;
     position: sticky;
     top: 10%;
-    box-shadow: 0px 0px 2px 0px #aaa;
+    box-shadow: 0px 0px 2px 0px var(--medium-gra);
     flex-shrink: 1;
 }
 
@@ -273,23 +273,23 @@ div.quantity {
     font-size: 1.6rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: #555;
+    color: var(--gray);
     padding: 20px 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .detail div:last-of-type {
-    border: 1.3px dashed #aaa;
+    border: 1.3px dashed var(--medium-gray);
     padding: 20px 10px;
     font-weight: 700;
     font-size: 30px;
-    border-color: #ddd transparent #ddd transparent;
+    border-color: var(--light-gray) transparent var(--light-gray) transparent;
     margin-bottom: 20px;
 }
 
 .detail div:last-of-type span {
     font-size: 1.8rem;
-    color: #555;
+    color: var(--gray);
 }
 
 .detail>span:last-child {
@@ -311,7 +311,7 @@ div.quantity {
 }
 
 div.shopnow button {
-    background: blue;
+    background: var(--Primary-color);
     padding: 12px 5px;
     width: 200px;
     margin: 1rem 0;
@@ -319,7 +319,7 @@ div.shopnow button {
     border: none;
     font-size: 1.2rem;
     font-weight: 400;
-    color: #fff;
+    color: var(--white-color);
 }
 
 .shopnow button:hover {
@@ -327,7 +327,7 @@ div.shopnow button {
 }
 
 div.shopnow a {
-    color: white;
+    color: var(--white-color);
 }
 
 .cart-order {
@@ -335,8 +335,8 @@ div.shopnow a {
     justify-content: flex-end;
     position: sticky;
     bottom: 0%;
-    background: #fbfbfb;
-    box-shadow: 0px -1px 6px 0px #aaa;
+    background: var(--ternery-color);
+    box-shadow: 0px -1px 6px 0px var(--light-gray);
 }
 
 .cart-order button:hover {
@@ -344,7 +344,7 @@ div.shopnow a {
 }
 
 .cart-order button {
-    background: #fb641b;
+    background: var(--orange-dark);
     padding: 19px 5px;
     width: 200px;
     margin: 1rem 2rem;
@@ -353,7 +353,7 @@ div.shopnow a {
     border: none;
     font-size: 1.5rem;
     letter-spacing: 0.4px;
-    color: #fff;
+    color: var(--white-color);
 }
 
 .cart-up h3 {
@@ -377,6 +377,9 @@ div.shopnow a {
 }
 
 @media (max-width:967px) {
+    .parent-cart {
+        margin-top: 55px;
+    }
     .parent-cart {
         flex-direction: column;
         justify-content: center;
@@ -451,14 +454,13 @@ div.shopnow a {
         font-size: 1.4rem;
         margin-right: 10px;
     }
-    .cart-up{
+    .cart-up {
         display: flex;
         justify-content: space-between;
     }
-    .cart-order button{
+    .cart-order button {
         padding: 10px;
         width: 180px;
-        
     }
 }
 

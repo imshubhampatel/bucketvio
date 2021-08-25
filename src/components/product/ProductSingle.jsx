@@ -38,7 +38,7 @@ export default function Cart() {
                     }
                     {
                         <div className="button-wishlist"><div><span><i className="fas fa-bolt"></i></span>BUY NOW</div></div>
-                    }
+                    } 
                 </div>
             </div>
             <div className="phone-about">

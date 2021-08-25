@@ -40,19 +40,18 @@ export default function Navbar() {
                             </div>
                         </div>
                         <div className="navigation-login">
-                            <div className="parent-drop-down">
-                                <div className="parent-login">
-                                    <Link to="/login">login</Link>
-                                    <Link to="/login">
+                            <Link to="/login">
+                                <div className="parent-drop-down">
+                                    <div className="parent-login">
+                                        <Link to="/login">login</Link>
                                         <span>
                                             <img
                                                 src="https://freesvg.org/img/clarity-shutdown-icon.png"
                                                 alt="logout"
                                             />
                                         </span>
-                                    </Link>
-                                </div>
-                                {/* <div className="children-drop-down">
+                                    </div>
+                                    {/* <div className="children-drop-down">
                                     <div><div> New customer </div><div><span>Sign up</span></div></div>
                                     <ul className="drop-down-list">
                                         <li><span><img src="https://image.flaticon.com/icons/png/512/2919/2919600.png" />My Profile</span></li>
@@ -62,7 +61,8 @@ export default function Navbar() {
                                     </ul>
 
                                 </div> */}
-                            </div>
+                                </div>
+                            </Link>
                         </div>
                         <div className="navigation-more">
                             <div className="pure-div">
@@ -73,9 +73,11 @@ export default function Navbar() {
                         </div>
                         <div className="navigation-cart">
                             <div className="pure-div">
-                                <div className="default-icon">
-                                    <i className="fas fa-shopping-cart"></i>
-                                </div>
+                                <Link to="/cart">
+                                    <div className="default-icon">
+                                        <i className="fas fa-shopping-cart"></i>
+                                    </div>
+                                </Link>
                                 <div className="pure-div logo-text">
                                     <Link to="/cart">
                                         <i className="fas fa-shopping-cart"></i>
