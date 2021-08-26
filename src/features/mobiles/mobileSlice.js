@@ -38,7 +38,7 @@ export function fetchMobiles() {
         dispatch(getMobiles());
 
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/data/phones`);
+            const response = await fetch(`https://database-dev.shubhampatel9.repl.co/api/v1/data/phones`);
             const data = await response.json();
             setTimeout(() => {
                 dispatch(getMobilesSuccess(data.data))
