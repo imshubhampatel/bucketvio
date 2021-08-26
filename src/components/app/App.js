@@ -18,9 +18,8 @@ function App() {
       <Switch>
         <Route exact path="/wishlist" component={Wishlist} />
         <Route exact path="/cart" component={Cart} />
-        <Route exact path="/products" component={Dashboard} />
+        <Route exact path="/" component={Dashboard} />
         <Route exact path="/products/:prodcutDeatil/dp/:productId" component={ProductSingle} />
-        <Redirect exact from="/" to="/products" />
         <Route exact path="/*" component={Page404} />
       </Switch>
     </Router>
