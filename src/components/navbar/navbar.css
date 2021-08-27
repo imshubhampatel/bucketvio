@@ -37,6 +37,9 @@ li, a, p, span {
     --black: #2a2a2a;
     --gray: #2a2a2a;
     --original-black: #000;
+    --pramary-form-color: #e27ccc;
+    --secondary-from-color: #0076ef;
+    --pink-color: #f90085;
     --Roboto: "Roboto", sans-serif;
 }
 
