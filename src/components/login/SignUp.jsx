@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import formImage from "../../images/form.svg";
 import axios from "axios";
 import qs from "qs";
@@ -67,6 +67,7 @@ export default function SignUp() {
             console.log("error", err)
         }
     }
+
     return (
         <>
             <section>

@@ -5,7 +5,6 @@ import "./sidebar.css"
 
 export default function Sidebar() {
     const { sortByPrice, sortBy } = useSelector(filterSelecter);
-    console.log("sortbyprice", sortByPrice)
     const dispatch = useDispatch()
 
     return (

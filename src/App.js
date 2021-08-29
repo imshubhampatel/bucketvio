@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchMobiles } from '../../features/mobiles/mobileSlice';
+import { fetchMobiles } from './features/mobiles/mobileSlice';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import { Cart, Wishlist, Login, Dashboard, Page404, ProductSingle } from '..';
-import Navbar from '../navbar/Navbar';
-import SignUp from '../login/SignUp';
+import { Cart, Wishlist, Login, Dashboard, Page404, ProductSingle } from './components';
+import Navbar from './components/navbar/Navbar';
+import SignUp from './components/login/SignUp';
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
+    console.log("fetchCalled")
     dispatch(fetchMobiles());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <Router>

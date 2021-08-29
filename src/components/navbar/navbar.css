@@ -207,6 +207,21 @@ li, a, p, span {
     height: auto;
 }
 
+.parent-login a.userLoggedIn {
+    color: #fff;
+    width: 100%;
+    font-weight: 500;
+    line-height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 32px;
+    padding: 5px 40px;
+    text-transform: capitalize;
+    text-decoration: none;
+    border: none;
+}
+
 .parent-login a {
     color: #2874f0;
     width: 100%;

@@ -1,71 +1,35 @@
 import React, { useState } from "react";
-// import formImage from "../../images/form.svg";
-import axios from "axios";
-import qs from "qs";
-import { emailPattern, userNamePattern, passwordPattern } from "../../utilities/pattern";
+import { emailPattern, passwordPattern } from "../../utilities/pattern";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser, setUserDetails } from "../../features/auth/authSlice";
 import "./login.css"
+import { useHistory } from "react-router-dom";
 
 
 
 export default function Login() {
+    const { isAuthenticated, accessToken } = useSelector(state => state.auth)
+    const history = useHistory();
+    const dispatch = useDispatch();
+    console.log(isAuthenticated);
+
     const [userCrediential, setUserCrediential] = useState({
-        username: "",
         email: "",
         password: "",
     })
 
+    const { email, password } = userCrediential;
 
-
-    const { username, email, password } = userCrediential;
-
-    const onChageUsername = (e) => {
-        setUserCrediential({
-            ...userCrediential,
-            username: e.target.value
-        })
-
-    }
-    const onChageEmail = (e) => {
-        setUserCrediential({
-            ...userCrediential,
-            email: e.target.value
-        })
-
-    }
-    const onChangePassword = (e) => {
-        setUserCrediential({
-            ...userCrediential,
-            password: e.target.value
-        })
-    }
     const onSubmitHandler = (e) => {
-        e.preventDefault();
-        console.log(userCrediential)
-        try {
-            const data = qs.stringify({
-                name: username,
-                password: password,
-                email: email,
+        e.preventDefault()
+        dispatch(fetchUser(userCrediential))
+    }
 
-            });
-            console.log(data)
-            var config = {
-                method: "post",
-                url: "http://localhost:5000/api/v1/users/sign-in",
-                headers: {
-                    "content-type": "application/x-www-form-urlencoded"
-                },
-                data: data
-            }
-            axios(config)
-                .then((response) => console.log(response.data))
-                .catch(function (error) {
-                    console.log(error.response.data);
-                });
-
-        } catch (err) {
-            console.log("error", err)
-        }
+    if (isAuthenticated) {
+        history.push({
+            pathname: "/products",
+        })
+        dispatch(setUserDetails())
     }
     return (
         <>
@@ -86,12 +50,12 @@ export default function Login() {
                             <div className="input-items">
                                 <div className="email-input input-container">
                                     <label htmlFor="email">ENTER YOUR EMAIL</label>
-                                    <input type="text" value={email} id="email" onChange={onChageEmail} placeholder="Enter email" />
+                                    <input type="text" value={email} id="email" onChange={(event) => setUserCrediential({ ...userCrediential, email: event.target.value })} placeholder="Enter email" autoComplete="true" />
                                     {email !== "" ? emailPattern.test(email) ? <i className="fas fa-check-circle icon-style icon-green"></i> : <span><i className="fas fa-times-circle icon-style icon-red"></i></span> : null}
                                 </div>
                                 <div className="input-container">
                                     <label htmlFor="password">PASSWORD</label>
-                                    <input type="password" id="password" value={password} onChange={onChangePassword} placeholder="Enter password" />
+                                    <input type="password" id="password" value={password} onChange={(event) => setUserCrediential({ ...userCrediential, password: event.target.value })} placeholder="Enter password" autoComplete="true" />
                                     {password !== "" ? passwordPattern.test(password) ? <i className="fas fa-check-circle icon-style icon-green"></i> : <span><i className="fas fa-times-circle icon-style icon-red"></i></span> : null}
                                 </div>
                                 <div className="input-container">

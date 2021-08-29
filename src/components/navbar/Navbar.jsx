@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
+let userName = false;
+
 export default function Navbar() {
     return (
         <>
@@ -43,7 +45,11 @@ export default function Navbar() {
                             <Link to="/login">
                                 <div className="parent-drop-down">
                                     <div className="parent-login">
-                                        <Link to="/login">login</Link>
+                                        {
+                                            userName && userName !== undefined
+                                                ? < Link className="userLoggedIn">{userName}</Link>
+                                                : < Link to="/login">login</Link>
+                                        }
                                         <span>
                                             <img
                                                 src="https://freesvg.org/img/clarity-shutdown-icon.png"

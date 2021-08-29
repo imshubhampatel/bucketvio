@@ -13,7 +13,14 @@ const userSchama = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    cart: {
+        type: Array
+    },
+    wishlist: {
+        type: Array
     }
+
 }, {
     timestamps: true
 });

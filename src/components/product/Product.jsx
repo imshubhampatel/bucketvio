@@ -4,8 +4,8 @@ import ProductList from './ProductList';
 import "./product.css"
 import Sidebar from '../sidebar/Sidebar';
 import SortFilter from '../../utilities/Sortfilter';
-import SkeletonMobile from '../../skeleton/SkeletonMobile';
-import SkeletonSidebar from '../../skeleton/SkeletonSidebar';
+import SkeletonMobile from '../../loader/skeleton/SkeletonMobile';
+import SkeletonSidebar from '../../loader/skeleton/SkeletonSidebar';
 import MobileSidebar from '../sidebar/MobileSidebar';
 
 
