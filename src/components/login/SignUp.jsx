@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import formImage from "../../images/form.svg";
+import React, { useState } from "react";
 import axios from "axios";
 import qs from "qs";
 import { emailPattern, userNamePattern, passwordPattern } from "../../utilities/pattern";

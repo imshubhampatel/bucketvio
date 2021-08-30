@@ -10,9 +10,11 @@ let opts = {
 
 passport.use(new JwtStragety(opts, function (jwtPayload, done) {
 
+    console.log(jwtPayload)
     User.findOne(jwtPayload._id, function (err, user) {
-        if (err) {console.log(err); return;}
+        if (err) { console.log(err); return; }
         if (user) {
+            console.log(user)
             return done(null, user);
         } else {
             return done(null, false);

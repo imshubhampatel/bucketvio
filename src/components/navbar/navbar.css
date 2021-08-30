@@ -207,11 +207,12 @@ li, a, p, span {
     height: auto;
 }
 
-.parent-login a.userLoggedIn {
+.parent-login span.userLoggedIn {
     color: #fff;
     width: 100%;
     font-weight: 500;
     line-height: 20px;
+    font-size: 1.6rem;
     background-color: transparent;
     cursor: pointer;
     border-radius: 2px;
@@ -222,7 +223,11 @@ li, a, p, span {
     border: none;
 }
 
-.parent-login a {
+div.parent-login {
+    position: relative;
+}
+
+.parent-login div {
     color: #2874f0;
     width: 100%;
     font-weight: 500;

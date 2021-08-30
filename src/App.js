@@ -9,7 +9,6 @@ import SignUp from './components/login/SignUp';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("fetchCalled")
     dispatch(fetchMobiles());
   }, [dispatch]);
 

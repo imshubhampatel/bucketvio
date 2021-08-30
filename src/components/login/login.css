@@ -8,7 +8,7 @@ section {
 }
 
 .sign-in {
-    width: 50%;
+    width: 60%;
     height: 80%;
     margin: 80px auto;
     display: flex;
@@ -90,7 +90,7 @@ div.form-text {
     width: 100%;
     padding: 5px;
     height: 35px;
-    margin: 0 auto;
+    margin: 10px auto 0px auto;
     border-radius: 0%;
     background-color: var(--orange-dark);
     color: #fff;
@@ -142,7 +142,7 @@ div.form-text {
 }
 
 .sign-in form {
-    width: 70%;
+    width: 60%;
     height: auto;
 }
 
@@ -167,4 +167,16 @@ div.form-text {
 
 .fa-times-circle {
     padding-right: 5px;
+}
+
+div.link-sign {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+div.text-sign {
+    color: #0076ef;
+    padding: 5px;
 }

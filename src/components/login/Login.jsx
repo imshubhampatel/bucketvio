@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { emailPattern, passwordPattern } from "../../utilities/pattern";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser, setUserDetails } from "../../features/auth/authSlice";
 import "./login.css"
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 
 
 export default function Login() {
-    const { isAuthenticated, accessToken } = useSelector(state => state.auth)
+    const { isAuthenticated } = useSelector(state => state.auth)
     const history = useHistory();
     const dispatch = useDispatch();
-    console.log(isAuthenticated);
 
     const [userCrediential, setUserCrediential] = useState({
         email: "",
@@ -29,8 +28,16 @@ export default function Login() {
         history.push({
             pathname: "/products",
         })
-        dispatch(setUserDetails())
     }
+
+    useEffect(() => {
+        return () => {
+            if (isAuthenticated) {
+                console.log("cleanUP called")
+                dispatch(setUserDetails())
+            }
+        }
+    }, [dispatch, isAuthenticated])
     return (
         <>
             <section>
@@ -59,18 +66,12 @@ export default function Login() {
                                     {password !== "" ? passwordPattern.test(password) ? <i className="fas fa-check-circle icon-style icon-green"></i> : <span><i className="fas fa-times-circle icon-style icon-red"></i></span> : null}
                                 </div>
                                 <div className="input-container">
-                                    <button
-                                        type="submit"
-                                        disabled={
-                                            passwordPattern.test(password) && emailPattern.test(email)
-                                                ? false
-                                                : true
-                                        }
-                                        onClick={onSubmitHandler}
-                                        className="btn"
-                                    >
+                                    <button type="submit" disabled={passwordPattern.test(password) && emailPattern.test(email) ? false : true} onClick={onSubmitHandler} className="btn" >
                                         Submit
                                     </button>
+                                </div>
+                                <div className="link-sign">
+                                    <Link to="/sign-up"><div className="text-sign">New to Flipcart? Create an account</div></Link>
                                 </div>
                             </div>
                         </form>

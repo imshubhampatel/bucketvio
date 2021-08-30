@@ -1,10 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-let userName = false;
 
 export default function Navbar() {
+    const { isAuthenticated, userDetails } = useSelector(state => state.auth)
+
+
+
+
     return (
         <>
             <div className="navbar">
@@ -42,33 +47,33 @@ export default function Navbar() {
                             </div>
                         </div>
                         <div className="navigation-login">
-                            <Link to="/login">
-                                <div className="parent-drop-down">
-                                    <div className="parent-login">
-                                        {
-                                            userName && userName !== undefined
-                                                ? < Link className="userLoggedIn">{userName}</Link>
-                                                : < Link to="/login">login</Link>
-                                        }
-                                        <span>
-                                            <img
-                                                src="https://freesvg.org/img/clarity-shutdown-icon.png"
-                                                alt="logout"
-                                            />
-                                        </span>
-                                    </div>
-                                    {/* <div className="children-drop-down">
-                                    <div><div> New customer </div><div><span>Sign up</span></div></div>
-                                    <ul className="drop-down-list">
-                                        <li><span><img src="https://image.flaticon.com/icons/png/512/2919/2919600.png" />My Profile</span></li>
-                                        <li><span><img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png" />Flipkart Plus</span></li>
-                                        <li><span><img src="https://image.flaticon.com/icons/png/512/733/733329.png" />Wallet</span></li>
-                                        <li><span><img src="https://image.flaticon.com/icons/png/512/262/262523.png" />Wihslist</span></li>
-                                    </ul>
+                            {
+                                isAuthenticated
+                                    ? (<div className="parent-drop-down">
+                                        <div className="parent-login">
+                                            {
+                                                userDetails === null
+                                                    ? < span className="userLoggedIn">Loading..</span>
+                                                    : < span className="userLoggedIn">{userDetails.name}</span>
 
-                                </div> */}
-                                </div>
-                            </Link>
+                                            }
+                                        </div>
+                                    </div>)
+                                    : (<Link to="/login">
+                                        <div className="parent-drop-down">
+                                            <div className="parent-login">
+                                                <div>login</div>
+                                                <span>
+                                                    <img
+                                                        src="https://freesvg.org/img/clarity-shutdown-icon.png"
+                                                        alt="logout"
+                                                    />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Link>)
+                            }
+
                         </div>
                         <div className="navigation-more">
                             <div className="pure-div">
