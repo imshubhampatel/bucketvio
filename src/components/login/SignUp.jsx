@@ -3,17 +3,21 @@ import axios from "axios";
 import qs from "qs";
 import { emailPattern, userNamePattern, passwordPattern } from "../../utilities/pattern";
 import "./login.css"
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { setSnackBar } from "../../features/filters/filterSlice";
 
 
 
 export default function SignUp() {
+    const { isAuthenticated } = useSelector(state => state.auth)
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [userCrediential, setUserCrediential] = useState({
         username: "",
         email: "",
         password: "",
     })
-
-
 
     const { username, email, password } = userCrediential;
 
@@ -57,11 +61,18 @@ export default function SignUp() {
                 data: data
             }
             axios(config)
-                .then((response) => console.log(response.data))
+                .then((response) => {
+                    console.log(response.data)
+                    dispatch(setSnackBar({ message: response.data.message, type: "check-circle" }))
+                    localStorage.setItem("token", JSON.stringify(response.data.data.token))
+                    setTimeout(() => {
+                        history.push("/login")
+                    }, 2000);
+                })
                 .catch(function (error) {
                     console.log(error.response.data);
+                    dispatch(setSnackBar({ message: error.response.data.message, type: "times-circle" }))
                 });
-
         } catch (err) {
             console.log("error", err)
         }
@@ -103,7 +114,7 @@ export default function SignUp() {
                                     <button
                                         type="submit"
                                         disabled={
-                                            passwordPattern.test(password) && emailPattern.test(email)
+                                            passwordPattern.test(password) && emailPattern.test(email) && userNamePattern.test(username)
                                                 ? false
                                                 : true
                                         }

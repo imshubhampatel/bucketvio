@@ -58,7 +58,7 @@ module.exports.signIn = async (req, res) => {
             else if (user) {
                 let isMatch = await bcrypt.compare(password, user.password);
                 if (!isMatch) {
-                    return res.status(200).json({ message: "Password didn'nt match", data: { success: false } });
+                    return res.status(401).json({ message: "Password didn'nt match", data: { success: false } });
                 }
                 if (isMatch) {
                     var token = await jwt.sign({ id: user._id }, process.env.ACCESSTOKEN_SECRET, { expiresIn: "1d" });

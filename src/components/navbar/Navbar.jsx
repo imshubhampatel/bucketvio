@@ -1,14 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Hover from "./Hover";
 import "./navbar.css";
 
 
 export default function Navbar() {
     const { isAuthenticated, userDetails } = useSelector(state => state.auth)
-
-
-
 
     return (
         <>
@@ -54,9 +52,8 @@ export default function Navbar() {
                                             {
                                                 userDetails === null
                                                     ? < span className="userLoggedIn">Loading..</span>
-                                                    : < span className="userLoggedIn">{userDetails.name}</span>
-
-                                            }
+                                                    // : < span className="userLoggedIn">{`${userDetails.name}`}</span>}
+                                                    : < span className="userLoggedIn">{`${userDetails.name.slice(0, 7)}...`}</span>}
                                         </div>
                                     </div>)
                                     : (<Link to="/login">
@@ -73,7 +70,7 @@ export default function Navbar() {
                                         </div>
                                     </Link>)
                             }
-
+                            <Hover />
                         </div>
                         <div className="navigation-more">
                             <div className="pure-div">

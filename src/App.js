@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import { Cart, Wishlist, Login, Dashboard, Page404, ProductSingle } from './components';
 import Navbar from './components/navbar/Navbar';
 import SignUp from './components/login/SignUp';
+import ToastElement from './toast/ToastElements';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <ToastElement />
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />

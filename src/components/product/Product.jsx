@@ -12,15 +12,21 @@ import { setUserDetails } from '../../features/auth/authSlice';
 
 
 export default function Product() {
-    const dispatch = useDispatch()
-    const { mobiles: product, loading } = useSelector(state => state.mobiles)
-    const { sortByPrice, sortBy, showFastDelivery, showOutOfStock } = useSelector(state => state.filters)
+    const dispatch = useDispatch();
+    const { isAuthenticated } = useSelector(state => state.auth);
+    const { mobiles: product, loading } = useSelector(state => state.mobiles);
+    const { sortByPrice, sortBy, showFastDelivery, showOutOfStock } = useSelector(state => state.filters);
     const listItem = SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery);
 
 
     useEffect(() => {
-        dispatch(setUserDetails())
-    }, [])
+        try {
+            if (isAuthenticated) {
+                dispatch(setUserDetails())
+            }
+        } catch (error) {
+        }
+    }, [dispatch])
 
     return (
         <div className="dashboard container">

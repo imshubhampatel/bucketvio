@@ -17,17 +17,23 @@ export const fetchUser = createAsyncThunk(
             },
             data: data
         }
-        const response = await axios(config)
-        return response.data;
+
+        try {
+            const response = await axios(config)
+            return response.data;
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
+        }
+
     }
 )
 
 export const setUserDetails = createAsyncThunk(
     "auth/setUser",
-    async () => {
+    async (thunkAPI) => {
 
         const accessToken = JSON.parse(localStorage.getItem("token"));
-
         const config = {
             method: "get",
             url: `${process.env.REACT_APP_SERVER_URL}users/`,
@@ -36,9 +42,16 @@ export const setUserDetails = createAsyncThunk(
                 "content-type": "application/x-www-form-urlencoded"
             },
         }
-        const response = await axios(config);
-        console.log(response.data)
-        return response.data
+        try {
+            const response = await axios(config);
+            console.log(response.data)
+            return response.data;
+
+        } catch (error) {
+            console.log(error.response.data)
+            return thunkAPI.rejectWithValue(error.response.data)
+        }
+
     }
 )
 
@@ -55,8 +68,12 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        setUser: (state, { payload }) => {
-            state.userDetails = payload;
+        getLoggedOut: (state) => {
+            state.accessToken = null;
+            state.hasErrors = null;
+            state.userDetails = null;
+            state.isAuthenticated = false;
+            localStorage.clear();
         }
     },
     extraReducers: {
@@ -70,11 +87,14 @@ const authSlice = createSlice({
             state.isAuthenticated = true;
         },
         [fetchUser.rejected]: (state, { payload }) => {
-            console.log(payload)
+            console.log("in error", payload)
             state.loading = false;
             state.isAuthenticated = false;
             state.hasErrors = payload;
+            localStorage.clear();
         },
+
+        // setUser details are here ///////////////////////////////////////////////////
         [setUserDetails.pending]: (state) => {
             state.loading = true;
         },
@@ -82,15 +102,18 @@ const authSlice = createSlice({
             state.loading = false;
             state.userDetails = payload;
         },
-        [setUserDetails.rejected]: (state, { payload }) => {
+        [setUserDetails.rejected]: (state, action) => {
+            console.log("in reducer", action)
             state.loading = false;
+            state.hasErrors = action.payload;
+            state.accessToken = null;
             state.isAuthenticated = false;
-            state.hasErrors = payload;
+            localStorage.removeItem("token");
         },
     }
 })
 
-export const { getUser, getUserSuccess, getUserFailure, setUser } = authSlice.actions;
+export const { getLoggedOut } = authSlice.actions;
 export const authSelecter = state => state.auth;
 const authReducer = authSlice.reducer
 export default authReducer;

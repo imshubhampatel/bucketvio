@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUser, setUserDetails } from "../../features/auth/authSlice";
 import "./login.css"
 import { useHistory, Link } from "react-router-dom";
-
+import { setSnackBar } from "../../features/filters/filterSlice"
 
 
 export default function Login() {
@@ -17,17 +17,21 @@ export default function Login() {
         password: "",
     })
 
+
+
+
     const { email, password } = userCrediential;
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
         dispatch(fetchUser(userCrediential))
+        dispatch(setSnackBar({ type: "check-circle", message: "Successfully logged In" }))
     }
 
     if (isAuthenticated) {
-        history.push({
-            pathname: "/products",
-        })
+        setTimeout(() => {
+            history.push("/")
+        }, 1500);
     }
 
     useEffect(() => {

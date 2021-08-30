@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { addItemInCart } from '../../features/cart/cartSlice';
+import { setSnackBar } from '../../features/filters/filterSlice';
 import { removeToWishlist } from '../../features/wishlist/wishlistSlice';
 
 export default function CartItem({ product }) {
@@ -30,10 +31,10 @@ export default function CartItem({ product }) {
                         offers applied</span></h4>
                     <div className="last-crt">
                         {
-                            < button onClick={() => { dispatch(addItemInCart(product)); dispatch(removeToWishlist(product)) }}>MOVE TO CART</button>
+                            < button onClick={() => { dispatch(addItemInCart(product)); dispatch(removeToWishlist(product)); dispatch(setSnackBar({ message: `${product.title} Added to cart`, type: "check-circle" })); }}>MOVE TO CART</button>
                         }
                         {
-                            < button onClick={() => dispatch(removeToWishlist(product))}>REMOVE</button>
+                            < button onClick={() => { dispatch(removeToWishlist(product)); dispatch(removeToWishlist(product)); dispatch(setSnackBar({ message: `${product.title} from Saved`, type: "times-circle" })); }}>REMOVE</button>
                         }
                     </div>
                 </div>
