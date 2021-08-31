@@ -13,10 +13,10 @@ const app = express();
 const db = require('./config/mongoose');
 
 // setting up bodyParser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({ type: 'application/x-www-form-urlencoded' }));
 app.use(cookieParser());
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ type: 'application/x-www-form-urlencoded' }));
 
 // setting up passport 
 

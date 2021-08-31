@@ -18,7 +18,7 @@
 #toast.display {
     visibility: visible;
     z-index: 999;
-    animation: FadeIn 0.5s, FadeOut 0.5s 1.5s;
+    animation: FadeIn 0.5s, FadeOut 0.5s 2.5s;
 }
 
 #toast i {

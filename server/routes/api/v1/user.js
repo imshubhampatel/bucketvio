@@ -13,11 +13,11 @@ router.get("/",
 //     passport.authenticate("jwt", { session: false }),
 //     userApi.user
 // )
-router.post("/sign-up", userApi.signUp);
+router.post("/sign-up", userApi.register);
 
-router.post("/sign-in", userApi.signIn);
+router.post("/sign-in", userApi.login);
 
-router.get("/sign-out", auth, userApi.destroySession);
+router.get("/sign-out", auth, userApi.logout);
 
 
 module.exports = router;

@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLoggedOut } from '../../features/auth/authSlice';
 import { setSnackBar } from '../../features/filters/filterSlice';
-import { Link } from 'react-router-dom';
 
 export default function Hover() {
     const { isAuthenticated } = useSelector(state => state.auth)
@@ -10,7 +9,7 @@ export default function Hover() {
     function realoadFunc() {
         setTimeout(() => {
             window.location.reload();
-        }, 2000);
+        }, 1000);
     }
     return (
         <>
@@ -24,8 +23,8 @@ export default function Hover() {
                             <li className="orders"><i className="fas fa-box"></i>Orders</li>
                             <li className="about"><i className="fas fa-user-circle"></i>My Chats</li>
                             <li className="about"><i className="fas fa-wallet"></i>Gift Card</li>
-                            <li className="notification"><i className="fas fa-bell"></i>Notifications</li>
-                            <li className="logout" onClick={() => { dispatch(getLoggedOut()); dispatch(setSnackBar({ message: "Successfully Logged Out", type: "check-circle" })); realoadFunc() }}><i className="fas fa-power-off"></i>Logout</li>
+                            <li className="notification"><i className="far fa-bell"></i>Notifications</li>
+                            <li className="logout" onClick={() => { dispatch(getLoggedOut()); dispatch(setSnackBar({ message: "Successfully Logged Out", type: "exclamation-circle" })); realoadFunc() }}><i className="fas fa-power-off"></i>Logout</li>
                             <div></div>
                         </>
                         : null
