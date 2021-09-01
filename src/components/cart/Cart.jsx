@@ -32,43 +32,36 @@ export default function Cart() {
                                 <h3>Enter pincode </h3>
                             </span>
                         </div>
-                        {
-                            cartItem.length === 0
-                                ? <EmptyCart />
-                                : <>
-                                    {cartItem.map((item, index) => {
-                                        return <CartItem product={item} key={index} />
-                                    })}
-                                    <div className="cart-order">
-                                        <Link to="/checkout"><button>PLACE ORDER</button></Link>
-                                    </div>
-                                </>
-                        }
+                        {cartItem.length === 0
+                            ? <EmptyCart />
+                            : <>
+                                {cartItem.map((item, index) => {
+                                    return <CartItem product={item} key={index} />
+                                })}
+                                <div className="cart-order">
+                                    <Link to="/checkout"><button>PLACE ORDER</button></Link>
+                                </div>
+                            </>}
                     </div>
-                    {
-                        cartItemId.length === 0
-                            ? null
-                            : <div className="price-details mobile-price"><PriceDetail /></div>
+
+                    {cartItemId.length === 0
+                        ? null
+                        : <div className="price-details mobile-price"><PriceDetail /></div>
                     }
-
                     <div className="cart-item" style={{ marginTop: "4rem" }}>
-
-                        {
-
-                            wishlistItem.length === 0
-                                ? <div></div>
-                                :
-                                <>
-                                    <div className="cart-up">
-                                        <h3>SAVE FOR LATER</h3>
-                                    </div>
-                                    {
-                                        wishlistItem.map((item, index) => {
-                                            return <WishlistItem product={item} key={index} />
-                                        })
-                                    }
-                                </>
-                        }
+                        {wishlistItem.length === 0
+                            ? <div></div>
+                            :
+                            <>
+                                <div className="cart-up">
+                                    <h3>SAVE FOR LATER</h3>
+                                </div>
+                                {
+                                    wishlistItem.map((item, index) => {
+                                        return <WishlistItem product={item} key={index} />
+                                    })
+                                }
+                            </>}
                     </div>
                 </div>
                 <div className="price-details laptop-price">

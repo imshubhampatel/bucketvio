@@ -180,3 +180,13 @@ div.text-sign {
     color: #0076ef;
     padding: 5px;
 }
+
+@media (max-width:701px) {
+    div.sign-in {
+        width: 100%;
+        border: 1px solid red;
+    }
+    div.sign-in form{
+        width: 90%;
+    }
+}

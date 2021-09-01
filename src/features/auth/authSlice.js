@@ -23,6 +23,11 @@ export const fetchUser = createAsyncThunk(
             return response.data;
 
         } catch (error) {
+            // console.log("error.response", error.response)
+            // console.log("error.response data", error.response.data)
+            // if (error.message === "Could not connect to any servers in your MongoDB A…ttps://docs.atlas.mongodb.com/security-whitelist/") {
+            // return thunkAPI.rejectWithValue({ message: "you are offline" })
+            // }
             return thunkAPI.rejectWithValue(error.response.data)
         }
 

@@ -441,12 +441,14 @@ div.pure-div div a {
         display: none;
     }
     .parent-login span img {
-        display: block;
+        display: none;
     }
     .navigation-login {
         flex-shrink: 8;
+        margin-right: -10px;
         width: calc(100%-30px);
     }
+    
 }
 
 @media(max-width:554px) {

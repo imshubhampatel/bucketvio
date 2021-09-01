@@ -6,6 +6,7 @@ import { addItemInCart } from '../../features/cart/cartSlice';
 import { checkItemInObject } from '../../utilities/checkItem';
 import { Link } from 'react-router-dom';
 import { removeToWishlist } from '../../features/wishlist/wishlistSlice';
+import { setSnackBar } from '../../features/filters/filterSlice';
 
 export default function Cart() {
 
@@ -34,10 +35,10 @@ export default function Cart() {
                     {
                         checkItemInObject(cartItemId, product)
                             ? <div className="button-cart"><div><Link to="/cart"><span><i className="fas fa-shopping-cart"></i></span>GO TO CART</Link></div></div>
-                            : <div className="button-cart" onClick={() => { dispatch(addItemInCart(product)); dispatch(removeToWishlist(product)) }}><div><span><i className="fas fa-shopping-cart"></i></span>ADD TO CART</div></div>
+                            : <div className="button-cart" onClick={() => { dispatch(addItemInCart(product)); dispatch(removeToWishlist(product)); dispatch(setSnackBar({ message: `${product.title} Added to cart`, type: "check-circle" })); }}><div><span><i className="fas fa-shopping-cart"></i></span>ADD TO CART</div></div>
                     }
                     {
-                        <div className="button-wishlist"><div><span><i className="fas fa-bolt"></i></span>BUY NOW</div></div>
+                        <div className="button-wishlist" onClick={() => dispatch(setSnackBar({ message: `${product.title} Cannot Place order`, type: "times-circle" }))}><div><span><i className="fas fa-bolt"></i></span>BUY NOW</div></div>
                     }
                 </div>
             </div>

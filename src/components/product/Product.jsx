@@ -25,6 +25,7 @@ export default function Product() {
                 dispatch(setUserDetails())
             }
         } catch (error) {
+            console.log(error)
         }
     }, [dispatch])
 

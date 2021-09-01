@@ -22,10 +22,16 @@ export default function Login() {
 
     const { email, password } = userCrediential;
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = async (e) => {
         e.preventDefault()
-        dispatch(fetchUser(userCrediential))
-        dispatch(setSnackBar({ type: "check-circle", message: "Successfully logged In" }))
+        try {
+            const promiseResult = await dispatch(fetchUser(userCrediential)).unwrap();
+            console.log("rest in try", promiseResult)
+            dispatch(setSnackBar({ type: "check-circle", message: promiseResult.message }));
+        } catch (error) {
+            console.log('err inside onSubmit', error)
+            dispatch(setSnackBar({ type: "times-circle", message: error.message }));
+        }
     }
 
     if (isAuthenticated) {

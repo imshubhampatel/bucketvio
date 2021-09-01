@@ -13,8 +13,6 @@ const userApi = {
                     var hashPassword = bcrypt.hashSync(password, 10);
                     user = new User({ name, email, password: hashPassword });
                     await user.save();
-                    console.log("user.save");
-                    console.log(user._id);
                     const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
                     const refreshToken = await jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 
@@ -29,7 +27,7 @@ const userApi = {
                 // handling if user already in databse 
                 else if (user) {
                     console.log("insdie uuer")
-                    return res.status(400).send({ message: "user already registerd", data: { success: false } });
+                    return res.status(400).send({ message: "User already registerd", data: { success: false } });
                 }
                 else {
                     res.status(401).send("invalid authentication");
@@ -48,13 +46,13 @@ const userApi = {
             await User.findOne({ email }, async (err, user) => {
                 if (err) { console.log(err); }
                 else if (!user) {
-                    res.status(404).json({ message: "User not registered" });
+                    res.status(404).json({ message: "Please register first", data: { token: null, success: false } });
                 }
                 // if user found then 
                 else if (user) {
                     let isMatch = await bcrypt.compare(password, user.password);
                     if (!isMatch) {
-                        return res.status(401).json({ message: "Password didn'nt match", data: { success: false } });
+                        return res.status(401).json({ message: "Incorrect Password ", data: { success: false, token: null } });
                     }
                     if (isMatch) {
                         console.log(user._id);
@@ -64,17 +62,17 @@ const userApi = {
                             httpOnly: true,
                             path: "/api/v1/users/refresh-token",
                         })
-                        return res.status(200).json({ message: "login successully", data: { success: true, token: accessToken } });
+                        return res.status(200).json({ message: "Login successully", data: { success: true, token: accessToken } });
                     }
                 }
                 else {
-                    return res.status(404).json({ message: "user not found", data: { success: false } });
+                    return res.status(404).json({ message: "Invalid Authentication", data: { success: false, token: null } });
                 }
             });
         }
         catch (err) {
             if (err) {
-                return res.status(404).json({ message: err, data: { success: false } });
+                return res.status(404).json({ message: err, data: { success: false, token: null } });
             }
         }
     },
@@ -100,9 +98,8 @@ const userApi = {
 
                 })
             }
-
-
         } catch (error) {
+            return res.status(404).send(error)
 
         }
 
