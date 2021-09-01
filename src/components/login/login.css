@@ -1,0 +1,182 @@
+section {
+    border: 1px solid blue;
+    border-radius: 5px;
+    /* background:linear-gradient(90deg,var(--secondary-from-color),var(--pramary-form-color)); */
+    /* background: red; */
+    width: 100%;
+    height: 100vh;
+}
+
+.sign-in {
+    width: 60%;
+    height: 80%;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.img-container {
+    width: 40%;
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary-from-color);
+}
+
+.img-container div {
+    width: 100%;
+    color: var(--white-color);
+    padding: 20px;
+}
+
+div.form-text {
+    padding: 0px 80px 0px 20px;
+    margin: 20px 0px;
+    line-height: 23px;
+}
+
+.img-container div:last-of-type {
+    height: 180px;
+}
+
+.form-image {
+    width: 100%;
+    height: 200px;
+    background: url("https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-container img {
+    width: 100%;
+    display: inline-block;
+    min-height: 333px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.form-container h2 {
+    margin: 0%;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.form-container {
+    /* min-width: 230px; */
+    width: 60%;
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.input-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in button {
+    width: 100%;
+    padding: 5px;
+    height: 35px;
+    margin: 10px auto 0px auto;
+    border-radius: 0%;
+    background-color: var(--orange-dark);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.15rem;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+}
+
+.sign-in button:hover {
+    cursor: pointer;
+}
+
+.sign-in button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.sign-in label {
+    font-size: 1.4rem;
+    color: rgb(184, 179, 179);
+    letter-spacing: 0.1rem;
+    padding-bottom: 3px;
+}
+
+.sign-in input {
+    font-size: 1.6rem;
+    padding: 5px 2px;
+    border: 2px solid #2874f0;
+    border-color: transparent transparent #2874f0 transparent;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    letter-spacing: 0.05rem;
+}
+
+.sign-in input:focus {
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in form {
+    width: 60%;
+    height: auto;
+}
+
+.icon-style {
+    position: absolute;
+    top: 50%;
+    right: -13%;
+    font-size: 1.6rem;
+}
+
+.icon-green {
+    color: rgb(7, 172, 136);
+}
+
+.icon-red {
+    color: rgb(245, 14, 6);
+}
+
+.fa-check-circle {
+    padding-right: 5px;
+}
+
+.fa-times-circle {
+    padding-right: 5px;
+}
+
+div.link-sign {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+div.text-sign {
+    color: #0076ef;
+    padding: 5px;
+}

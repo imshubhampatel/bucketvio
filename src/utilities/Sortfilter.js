@@ -57,7 +57,6 @@ export default function SortFilter(product, sortBy, sortByPrice, showOutOfStock,
     let sortedMobileData = filterMobileBrand(product, sortBy);
     let sortedData = getSortedPriceData(sortedMobileData, sortByPrice);
     let filteredData = getFilterData(sortedData, showFastDelivery, showOutOfStock);
-    console.log("me", filteredData)
 
     return filteredData;
 }

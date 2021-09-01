@@ -5,13 +5,13 @@ const User = require("../models/userSchema");
 
 let opts = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.ACCESSTOKEN_SECRET,
+    secretOrKey: process.env.ACCESS_TOKEN_SECRET,
 };
 
-passport.use(new JwtStragety(opts, function (jwtPayload, done) {
-
-    User.findOne(jwtPayload._id, function (err, user) {
-        if (err) {console.log(err); return;}
+passport.use(new JwtStragety(opts, async (jwtPayload, done) => {
+    // console.log("jwt ", jwtPayload)
+    await User.findById(jwtPayload.id, function (err, user) {
+        if (err) { console.log(err); return (err, false); }
         if (user) {
             return done(null, user);
         } else {

@@ -18,7 +18,7 @@ export default function Cart() {
     const { image, title, price, camera, size, instock, cpu, weight, memory, display } = product;
     const [device, setDevice] = useState(image);
 
-    console.log("check", checkItemInObject(cartItemId, product))
+
     return (
         <div className="product-item-detail">
             <div className="phone-images images-detail">
@@ -38,7 +38,7 @@ export default function Cart() {
                     }
                     {
                         <div className="button-wishlist"><div><span><i className="fas fa-bolt"></i></span>BUY NOW</div></div>
-                    } 
+                    }
                 </div>
             </div>
             <div className="phone-about">

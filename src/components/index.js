@@ -9,5 +9,6 @@ import Navbar from "./navbar/Navbar";
 import Dashboard from "./home/Dashboard";
 import PriceDetail from "./cart/PriceDetail";
 import EmptyCart from "./cart/EmptyCart";
+import Login from "./login/Login"
 
-export { CartItem, Product, Wishlist, Cart, WishlistItem, EmptyCart, PriceDetail, Page404, Navbar, Dashboard, ProductSingle };
+export { CartItem, Product, Wishlist, Login, Cart, WishlistItem, EmptyCart, PriceDetail, Page404, Navbar, Dashboard, ProductSingle };

@@ -14,8 +14,6 @@ export default function MobileSidebar() {
         }
 
     })
-    console.log(showSidebar)
-
     const dispatch = useDispatch()
     return (
         <aside className="mobile-filters">

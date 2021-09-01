@@ -6,8 +6,8 @@ module.exports.home = (req, res) => {
 
 module.exports.data = (req, res) => {
     if (data) {
-        return res.status(200).json({message: "successfully fetched data", data: data});
+        return res.status(200).json({ message: "successfully fetched data", data: data });
     }
-    return res.json({msg: "there is no data in server"});
+    return res.json({ msg: "there is no data in server" });
 
 };

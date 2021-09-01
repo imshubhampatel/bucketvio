@@ -12,7 +12,6 @@ export default function PriceDetail() {
         await useEffect(() => {
             setBalance(
                 cartItem.reduce((total, item) => {
-                    console.log(total, item)
                     return total + parseInt(item.price.toString().replace(".", "")) * item.quantity;
                 }, 0)
             );
