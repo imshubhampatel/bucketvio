@@ -35,8 +35,7 @@ const userApi = {
             });
         } catch (err) {
             console.log("insdie catch")
-            if (err) { console.log(err); }
-            // res.status(404).json({"Error": err});
+            res.status(404).json({ data: { success: false, Error: err } });
         }
     },
     login: async (req, res) => {
@@ -86,14 +85,16 @@ const userApi = {
         try {
             const rf_Token = await req.cookies.refreshToken;
             if (!rf_Token) {
-                return res.status(401).json({ success: false, message: "Please Login or Sign Up first" });
+                return res.status(401).json({ data: { success: false, message: "Please Login or Sign Up first" } });
             }
             if (rf_Token) {
                 jwt.verify(rf_Token, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
-                    if (err) { return res.status(401).json({ success: false, message: "Eror Please Login or Sign Up first" }); }
+                    if (err) {
+                        return res.status(401).json({ data: { success: false, message: "Eror Please Login or Sign Up first" } });
+                    }
                     if (user) {
                         const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
-                        return res.status(200).json(({ success: true, token: accessToken }));
+                        return res.status(200).json(({ data: { success: true, token: accessToken } }));
                     }
 
                 })
