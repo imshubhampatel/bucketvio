@@ -19,5 +19,7 @@ router.post("/sign-in", userApi.login);
 
 router.get("/sign-out", auth, userApi.logout);
 
+router.get("/refresh-token", userApi.refreshToken);
+
 
 module.exports = router;
