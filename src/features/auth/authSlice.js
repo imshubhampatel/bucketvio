@@ -36,9 +36,8 @@ export const fetchUser = createAsyncThunk(
 
 export const setUserDetails = createAsyncThunk(
     "auth/setUser",
-    async (thunkAPI) => {
+    async (accessToken, thunkAPI) => {
 
-        const accessToken = JSON.parse(localStorage.getItem("token"));
         const config = {
             method: "get",
             url: `${process.env.REACT_APP_SERVER_URL}users/`,
@@ -64,8 +63,8 @@ export const initialState = {
     loading: false,
     userDetails: null,
     hasErrors: null,
-    accessToken: JSON.parse(localStorage.getItem("token")) || null,
-    isAuthenticated: JSON.parse(localStorage.getItem("token")) ? true : false,
+    accessToken: null,
+    isAuthenticated: JSON.parse(localStorage.getItem("isAuthenticated")),
 
 };
 
@@ -79,6 +78,7 @@ const authSlice = createSlice({
             state.userDetails = null;
             state.isAuthenticated = false;
             localStorage.clear();
+            // one request is to be sent
         }
     },
     extraReducers: {
@@ -88,7 +88,7 @@ const authSlice = createSlice({
         [fetchUser.fulfilled]: (state, { payload }) => {
             state.loading = false;
             state.accessToken = payload.data.token;
-            localStorage.setItem("token", JSON.stringify(payload.data.token));
+            localStorage.setItem("isAuthenticated", JSON.stringify(payload.data.success));
             state.isAuthenticated = true;
         },
         [fetchUser.rejected]: (state, { payload }) => {
@@ -110,10 +110,9 @@ const authSlice = createSlice({
         [setUserDetails.rejected]: (state, action) => {
             console.log("in reducer", action)
             state.loading = false;
-            state.hasErrors = action.payload;
-            state.accessToken = null;
-            state.isAuthenticated = false;
-            localStorage.removeItem("token");
+            // state.hasErrors = action.payload;
+            // state.accessToken = null;
+            // state.isAuthenticated = false;
         },
     }
 })

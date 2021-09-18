@@ -19,6 +19,8 @@ const userApi = {
                     res.cookie("refreshToken", refreshToken, {
                         sameSite: "strict",
                         path: "/api/v1/users/refresh-token",
+                        expire: 1000 * 60 * 60 * 24 * 7,
+                        secure: true,
                         httpOnly: true,
                     })
                     if (accessToken) {
@@ -61,7 +63,10 @@ const userApi = {
                         res.cookie("refreshToken", refreshToken, {
                             sameSite: "strict",
                             path: "/api/v1/users/refresh-token",
+                            expire: 1000 * 60 * 60 * 24 * 7,
                             httpOnly: true,
+                            secure: true,
+
                         })
                         return res.status(200).json({ message: "Login successully", data: { success: true, token: accessToken } });
                     }
@@ -86,7 +91,6 @@ const userApi = {
     refreshToken: async (req, res) => {
         try {
             const rf_Token = await req.cookies.refreshToken;
-            console.log("res", req.cookies)
             if (!rf_Token) {
                 return res.status(401).json({ data: { success: false, message: "Please Login or Sign Up first" } });
             }
@@ -96,10 +100,10 @@ const userApi = {
                         return res.status(401).json({ data: { success: false, message: "Eror Please Login or Sign Up first" } });
                     }
                     if (user) {
-                        const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
-                        return res.status(200).json(({ data: { success: true, token: accessToken } }));
+                        // here comes id not _id
+                        const accessToken = await jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
+                        return res.status(200).json(({ data: { success: true, accessToken: accessToken } }));
                     }
-
                 })
             }
         } catch (error) {

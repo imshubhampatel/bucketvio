@@ -15,38 +15,30 @@ axios.defaults.withCredentials = true;
 
 export default function Product() {
     const dispatch = useDispatch();
-    const { isAuthenticated } = useSelector(state => state.auth);
+    const { isAuthenticated } = useSelector(state => state.auth)
     const { mobiles: product, loading } = useSelector(state => state.mobiles);
     const { sortByPrice, sortBy, showFastDelivery, showOutOfStock } = useSelector(state => state.filters);
     const listItem = SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery);
-    const getData = async () => {
-        console.log("Shib")
-        try {
-            const res = await axios.get("http://localhost:5000/api/v1/users/refresh-token", { withCredentials: true });
-            console.log(res.data)
 
-        } catch (error) {
-            console.log(error.response.data)
 
-        }
-
-    }
 
     useEffect(() => {
-        console.log("it is useEffect")
-        getData();
+
+        if (isAuthenticated) {
+            const getData = async () => {
+                console.log("callled")
+                try {
+                    const res = await axios.get("http://localhost:5000/api/v1/users/refresh-token", { withCredentials: true });
+                    dispatch(setUserDetails(res.data.data.accessToken))
+
+                } catch (error) {
+                    console.log(error.response.data)
+                }
+            }
+            getData();
+        }
     }, [])
 
-
-    useEffect(() => {
-        try {
-            if (isAuthenticated) {
-                dispatch(setUserDetails())
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }, [dispatch])
 
     return (
         <div className="dashboard container">

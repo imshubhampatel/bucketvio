@@ -49,5 +49,5 @@ app.use("/", require("./routes"));
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (err) => {
     if (err) { console.log(err); }
-    console.log(chalk.red.bgWhite(`sever is running on ${PORT} successfully :) `));
+    console.log(chalk.red.bgWhite(` Sever is running ${PORT} successfully :) `));
 });

@@ -8,7 +8,7 @@ import { setSnackBar } from "../../features/filters/filterSlice"
 
 
 export default function Login() {
-    const { isAuthenticated } = useSelector(state => state.auth)
+    const { isAuthenticated, accessToken } = useSelector(state => state.auth)
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -40,14 +40,6 @@ export default function Login() {
         }, 1500);
     }
 
-    useEffect(() => {
-        return () => {
-            if (isAuthenticated) {
-                console.log("cleanUP called")
-                dispatch(setUserDetails())
-            }
-        }
-    }, [dispatch, isAuthenticated])
     return (
         <>
             <section>
