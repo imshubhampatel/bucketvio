@@ -17,8 +17,9 @@ const userApi = {
                     const refreshToken = await jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 
                     res.cookie("refreshToken", refreshToken, {
-                        httpOnly: true,
+                        sameSite: "strict",
                         path: "/api/v1/users/refresh-token",
+                        httpOnly: true,
                     })
                     if (accessToken) {
                         return res.status(200).json({ message: "User Resgister successfully", data: { success: true, token: accessToken } });
@@ -58,8 +59,9 @@ const userApi = {
                         const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
                         const refreshToken = await jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
                         res.cookie("refreshToken", refreshToken, {
-                            httpOnly: true,
+                            sameSite: "strict",
                             path: "/api/v1/users/refresh-token",
+                            httpOnly: true,
                         })
                         return res.status(200).json({ message: "Login successully", data: { success: true, token: accessToken } });
                     }
@@ -84,6 +86,7 @@ const userApi = {
     refreshToken: async (req, res) => {
         try {
             const rf_Token = await req.cookies.refreshToken;
+            console.log("res", req.cookies)
             if (!rf_Token) {
                 return res.status(401).json({ data: { success: false, message: "Please Login or Sign Up first" } });
             }

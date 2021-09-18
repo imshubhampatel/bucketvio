@@ -6,7 +6,12 @@ import { setSnackBar } from '../../features/filters/filterSlice';
 export default function Hover() {
     const { isAuthenticated } = useSelector(state => state.auth)
     const dispatch = useDispatch();
-    function realoadFunc() {
+    async function realoadFunc() {
+
+        await fetch("http://localhost:5000/api/v1/users/sign-out")
+            .then(response => response.json())
+            .then(data => console.log(data))
+
         setTimeout(() => {
             window.location.reload();
         }, 1000);

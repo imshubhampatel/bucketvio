@@ -13,15 +13,31 @@ const app = express();
 const db = require('./config/mongoose');
 
 // setting up bodyParser
-app.use(cookieParser());
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+// function headerMiddleware(req, res, next) {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.setHeader("Access-Control-Allow-Credentials", "true");
+//     next()
+// };
+
+var corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+    methods: "GET, PUT, POST, DELETE",
+    credentials: true,
+
+};
+
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/x-www-form-urlencoded' }));
+app.use(cookieParser());
 
 // setting up passport 
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 // setting up routers

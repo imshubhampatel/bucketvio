@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Hover from "./Hover";
 import "./navbar.css";
+import axios from "axios";
 
 
 export default function Navbar() {
     const { isAuthenticated, userDetails } = useSelector(state => state.auth)
+    const [searchInput, setSearchInput] = useState("");
+   
+
+    const onChangeHandler = (event) => {
+        console.log(event)
+    }
 
     return (
         <>
@@ -37,6 +44,8 @@ export default function Navbar() {
                                     <input
                                         type="text"
                                         placeholder="Search for products, brands and more"
+                                        value={searchInput}
+                                        onChange={(event) => onChangeHandler(event)}
                                     />
                                 </div>
                                 <div className="fa-icon">
