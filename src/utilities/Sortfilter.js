@@ -1,4 +1,4 @@
-export default function SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery) {
+export default function SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery, title, query) {
 
     function getSortedPriceData(product, sortByPrice) {
         if (sortByPrice && sortByPrice === "LowToHigh") {
@@ -54,9 +54,21 @@ export default function SortFilter(product, sortBy, sortByPrice, showOutOfStock,
 
     }
 
+    function genericFilter(items, title, query) {
+        return items.filter((item) => {
+            const value = item[title];
+            if (typeof (value) === "string" || typeof (value) === "number") {
+                return value.toString().toLocaleLowerCase().includes(query.toLowerCase())
+            }
+            return false;
+        })
+    }
+
     let sortedMobileData = filterMobileBrand(product, sortBy);
     let sortedData = getSortedPriceData(sortedMobileData, sortByPrice);
     let filteredData = getFilterData(sortedData, showFastDelivery, showOutOfStock);
+    let filteredAndSeachData = genericFilter(filteredData, title, query);
+    console.log(filteredAndSeachData)
 
-    return filteredData;
+    return filteredAndSeachData;
 }

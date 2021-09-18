@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
+    query: "",
     sortBy: null,
     sortByPrice: null,
     showFastDelivery: false,
@@ -8,6 +9,7 @@ export const initialState = {
     showBnackbar: false,
     snackBarMsg: "",
     snackBarType: "",
+
 
 
 };
@@ -27,6 +29,9 @@ const filterSlice = createSlice({
             state.snackBarType = "";
 
         },
+        setQuery: (state, action) => {
+            state.query = action.payload;
+        },
         setSortBy: (state, action) => {
             state.sortBy = action.payload;
         },
@@ -43,7 +48,7 @@ const filterSlice = createSlice({
     }
 })
 
-export const { setShowFastDelivery, resetSnackBar, setSnackBar, setShowOutOfStock, setSortBy, setSortByPrice } = filterSlice.actions;
+export const { setShowFastDelivery, resetSnackBar, setSnackBar, setShowOutOfStock, setSortBy, setSortByPrice, setQuery } = filterSlice.actions;
 export const filterSelecter = state => state.filters;
 export default filterSlice.reducer;
 

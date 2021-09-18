@@ -16,9 +16,10 @@ axios.defaults.withCredentials = true;
 export default function Product() {
     const dispatch = useDispatch();
     const { isAuthenticated } = useSelector(state => state.auth)
+    const { query } = useSelector(state => state.filters)
     const { mobiles: product, loading } = useSelector(state => state.mobiles);
     const { sortByPrice, sortBy, showFastDelivery, showOutOfStock } = useSelector(state => state.filters);
-    const listItem = SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery);
+    const listItem = SortFilter(product, sortBy, sortByPrice, showOutOfStock, showFastDelivery, "title", query);
 
 
 

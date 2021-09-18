@@ -4,16 +4,25 @@ import { Link } from "react-router-dom";
 import Hover from "./Hover";
 import "./navbar.css";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setQuery } from "../../features/filters/filterSlice";
 
 
 export default function Navbar() {
+    const dispatch = useDispatch();
     const { isAuthenticated, userDetails } = useSelector(state => state.auth)
+    const { query } = useSelector(state => state.filters)
     const [searchInput, setSearchInput] = useState("");
-   
+    console.log(query)
+
 
     const onChangeHandler = (event) => {
-        console.log(event)
+        setSearchInput(event.target.value)
     }
+
+    useEffect(() => {
+        dispatch(setQuery(searchInput))
+    }, [dispatch, searchInput])
 
     return (
         <>
