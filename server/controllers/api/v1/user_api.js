@@ -13,8 +13,8 @@ const userApi = {
                     var hashPassword = bcrypt.hashSync(password, 10);
                     user = new User({ name, email, password: hashPassword });
                     await user.save();
-                    const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
-                    const refreshToken = await jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
+                    const accessToken = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
+                    const refreshToken = await jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 
                     res.cookie("refreshToken", refreshToken, {
                         sameSite: "strict",
@@ -58,8 +58,8 @@ const userApi = {
                     }
                     if (isMatch) {
                         console.log(user._id);
-                        const accessToken = await jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
-                        const refreshToken = await jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
+                        const accessToken = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
+                        const refreshToken = await jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
                         res.cookie("refreshToken", refreshToken, {
                             sameSite: "strict",
                             path: "/api/v1/users/refresh-token",
@@ -100,8 +100,7 @@ const userApi = {
                         return res.status(401).json({ data: { success: false, message: "Eror Please Login or Sign Up first" } });
                     }
                     if (user) {
-                        // here comes id not _id
-                        const accessToken = await jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
+                        const accessToken = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
                         return res.status(200).json(({ data: { success: true, accessToken: accessToken } }));
                     }
                 })
