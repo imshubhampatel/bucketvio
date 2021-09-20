@@ -29,7 +29,7 @@ export default function Product() {
             const getData = async () => {
                 console.log("callled")
                 try {
-                    const res = await axios.get("http://localhost:5000/api/v1/users/refresh-token", { withCredentials: true });
+                    const res = await axios.get("api/v1/users/refresh-token", { withCredentials: true });
                     dispatch(setUserDetails(res.data.data.accessToken))
 
                 } catch (error) {

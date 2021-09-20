@@ -48,8 +48,8 @@ export const setUserDetails = createAsyncThunk(
         }
         try {
             const response = await axios(config);
-            console.log(response.data)
-            return response.data;
+            // console.log({ ...response.data, accessToken })
+            return { userDetails: response.data, accessToken };
 
         } catch (error) {
             console.log(error.response.data)
@@ -104,8 +104,11 @@ const authSlice = createSlice({
             state.loading = true;
         },
         [setUserDetails.fulfilled]: (state, { payload }) => {
+            console.log(payload)
             state.loading = false;
-            state.userDetails = payload;
+            state.userDetails = payload.userDetails;
+            state.accessToken = payload.accessToken;
+            state.hasErrors = null;
         },
         [setUserDetails.rejected]: (state, action) => {
             console.log("in reducer", action)

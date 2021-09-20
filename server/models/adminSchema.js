@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -14,18 +14,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cart: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Cart"
-    },
-    wishlist: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Wishlist"
-    }
+    products: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Product"
+        }
+    ]
 
 }, {
     timestamps: true
 });
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Admin = mongoose.model("Admin", adminSchema);
+module.exports = Admin;

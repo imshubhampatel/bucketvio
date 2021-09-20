@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require("passport");
 const router = express.Router();
-const userProduct = require('../../../controllers/api/v1/user_product');
+const userProduct = require('../../../../controllers/api/v1/user_product');
 
 router.patch("/add-to-cart",
     passport.authenticate("jwt", { session: false }),
