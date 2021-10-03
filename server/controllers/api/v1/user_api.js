@@ -1,18 +1,77 @@
 const User = require('../../../models/userSchema');
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+const formidable = require("formidable")
 
 const userApi = {
 
     register: async (req, res) => {
-        let { name, password, email } = req.body;
+        let form = formidable.IncomingForm();
+        let formData = await new Promise(async (resolve, reject) => {
+            await form.parse(req, (formErr, fields, files) => {
+                if (formErr) {
+                    reject(formErr)
+                    return;
+                }
+                if (fields || files) {
+                    resolve({ fields, files })
+                    return;
+                }
+            })
+        })
+
+        const { fields: {
+            email,
+            firstName,
+            lastName,
+            age,
+            gender,
+            profileImage,
+            street,
+            city,
+            district,
+            state,
+            pincode,
+            mobileOne,
+            mobileTwo,
+            password
+
+        }, files } = formData;
+        console.log(email)
         try {
-            await User.findOne({ email: req.body.email }, async (err, user) => {
+
+            let users = await User.findOne({ email: email })
+            console.log("usersss", users)
+            await User.findOne({ "contact.email": email }, async (err, user) => {
                 if (err) { console.log("Error in finding user in database ", err); }
                 if (!user) {
-                    var hashPassword = bcrypt.hashSync(password, 10);
-                    user = new User({ name, email, password: hashPassword });
+                    console.log("iuser", user)
+                    var hashPassword = await bcrypt.hashSync(password, 10);
+                    user = await new User({
+                        userDetails: {
+                            firstName,
+                            lastName,
+                            age,
+                            gender,
+                            profileImage,
+                        },
+                        contact: {
+                            email,
+                            mobileOne,
+                            mobileTwo,
+                        },
+                        address: {
+                            street,
+                            city,
+                            district,
+                            state,
+                            pincode,
+                        },
+                        encryPassword: hashPassword
+                    });
+                    console.log("u", user)
                     await user.save();
+                    console.log("usersk", user)
                     const accessToken = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
                     const refreshToken = await jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 
@@ -29,7 +88,7 @@ const userApi = {
                 }
                 // handling if user already in databse 
                 else if (user) {
-                    console.log("insdie uuer")
+                    console.log("insdie uuer", user)
                     return res.status(400).send({ message: "User already registerd", data: { success: false } });
                 }
                 else {
@@ -45,14 +104,15 @@ const userApi = {
         const { email, password } = req.body;
         try {
             // finding the user in database 
-            await User.findOne({ email }, async (err, user) => {
+            await User.findOne({ 'contact.email': email }, async (err, user) => {
                 if (err) { console.log(err); }
                 else if (!user) {
                     res.status(404).json({ message: "Please register first", data: { token: null, success: false } });
                 }
                 // if user found then 
                 else if (user) {
-                    let isMatch = await bcrypt.compare(password, user.password);
+                    console.log("found", user)
+                    let isMatch = await bcrypt.compare(password, user.encryPassword);
                     if (!isMatch) {
                         return res.status(401).json({ message: "Incorrect Password ", data: { success: false, token: null } });
                     }

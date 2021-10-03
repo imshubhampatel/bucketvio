@@ -1,29 +1,95 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+    userDetails: {
+        firstName: {
+            type: String,
+            required: true,
+        },
+        lastName: {
+            type: String,
+            required: true,
+        },
+        gender: {
+            type: String,
+            enum: ["male", "female", "transgender"],
+            required: true,
+        },
+        age: {
+            type: Number,
+            required: true,
+        },
+        profileImage: {
+            type: String,
+            required: true,
+        }
     },
-    email: {
+
+    contact: {
+        email: {
+            type: String,
+            required: true,
+        },
+        mobileOne: {
+            type: Number,
+            required: true,
+            unique: true,
+        },
+        mobileTwo: {
+            type: Number,
+            required: true,
+            unique: true,
+        }
+    },
+    address: {
+        street: {
+            type: String,
+            required: true,
+        },
+        city: {
+            type: String,
+            required: true,
+        },
+        district: {
+            type: String,
+            required: true,
+        },
+        state: {
+            type: String,
+            required: true,
+        },
+        pincode: {
+            type: Number,
+            required: true,
+        },
+    },
+    encryPassword: {
         type: String,
         required: true,
-        unique: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    cart: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Cart"
-    }
-    ,
-    wishlist: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Wishlist"
-    }
 
+    otp: {
+        type: Number,
+    },
+
+    cartItems: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Cart"
+        }
+    ],
+    wishlistItems: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Wishlist"
+        }
+    ],
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Order"
+        }
+    ],
 }, {
     timestamps: true
 });

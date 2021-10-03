@@ -7,7 +7,7 @@ router.patch("/add-to-cart",
     passport.authenticate("jwt", { session: false }),
     userProduct.addToCart
 );
-router.patch("/remove-to-cart",
+router.patch("/delete-to-cart",
     passport.authenticate("jwt", { session: false }),
     userProduct.removeToCart
 );

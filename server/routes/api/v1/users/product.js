@@ -19,13 +19,17 @@ router.post("/:productId/add-to-cart", passport.authenticate("user", { session: 
     , userProduct.addToCart
 )
 
-router.post("/:productId/cart/:cartId/delete-from-cart", passport.authenticate("user", { session: false })
+router.post("/:productId/delete-from-cart", passport.authenticate("user", { session: false })
     , userProduct.deleteFromCart
 )
+// actionType will be inc or dec
+router.put("/:productId/:actionType/cart", passport.authenticate("user", { session: false })
+    , userProduct.cartIncOrDec
+)
 
-// // delete product
-// router.post("/:productId/delete", passport.authenticate("user", { session: false })
-//     , adminProduct.deleteProduct
+//delete product
+// router.put("/:productId/update", passport.authenticate("user", { session: false })
+//     , adminProduct.update
 // )
 
 // // update product

@@ -44,57 +44,111 @@ const userProduct = {
             })
         }
     },
-    createCart: async (req, res) => {
-
-    },
-
     addToCart: async (req, res) => {
-        const { user: { _id: userId }, product: { _id: productId } } = req;
-        let newCart = { cart: productId, user: userId }
         try {
-            await User.findById(userId, async (err, user) => {
-                if (err) console.log(err);
-                if (user) {
-                    await Cart.findOne({ user: userId }, (err, cartItem) => {
-                        if (err) return res.status(400).json({ error: true, data: { message: "Failed to add in cart", errors: err.errors } })
-                        if (!cartItem) {
-                            console.log("notcart")
-                            Cart.create(newCart)
-                            return res.status(200).json({ error: false, data: { message: "Added in cart sucessfully", cartItem, user } })
-                        }
-                        if (cartItem) {
-                            cartItem.products.push = productId;
-                            cartItem.save();
-                            return res.status(200).json({ error: false, data: { message: "Added in cart sucessfully", cartItem, user } })
-                        }
-                    })
-                }
-            });
+            let user = await User.findOne(req.user._id).populate("cartItems");
+            let cart = await Cart.findOne({ cart: req.product._id })
+            console.log(cart)
+            if (cart) {
+                return res.status(400).json({
+                    error: true,
+                    data: {
+                        message: "already exists in cart",
+                        cart
+                    }
+                })
+            }
+            if (!cart) {
+                cart = new Cart({
+                    user: req.user._id,
+                    cart: req.product._id,
+                })
+                await cart.save();
+                user.cartItems.push(cart);
+                user.save();
+                return res.status(200).json({
+                    error: false,
+                    data: {
+                        message: "Added in cart sucessfully",
+                        user,
+                        cart
+                    }
+                })
+            }
         } catch (error) {
-            return res.status(400).json({ error: true, data: { message: "Failed to add in cart", error } })
+            return res.status(500).json({
+                error: true,
+                data: {
+                    message: "Internal server Error",
+                    error
+                }
+            })
         }
     },
 
     deleteFromCart: async (req, res) => {
-        console.log(req)
-        const { product: { _id: productId }, user: { _id: userId } } = req;
         try {
-            await User.findById({ _id: userId }, async (err, user) => {
-                if (err) console.log("err", err)
-                if (user) {
-                    //checked
-                    await Cart.findOneAndUpdate()
-                    return res.status(200).json({ error: false, data: { message: "product removed to cart sucessfully", user } })
+            let user = await User.findOne(req.user._id);
+            await Cart.remove({ cart: req.product._id });
+            return res.status(200).json({
+                error: false,
+                data: {
+                    message: "Deleted from cart sucessfully",
                 }
             })
         } catch (error) {
-            return res.json({ data: "product didtn't removed", error })
-
+            return res.status(400).json({
+                error: true,
+                data: {
+                    message: "Failed to Delete from cart",
+                    error
+                }
+            })
         }
 
     },
-    addToWishlist: async () => {
-        return res.json({ data: "product Added to wishlist" })
+    cartIncOrDec: async (req, res) => {
+        const { actionType } = req.params;
+        try {
+            if (actionType === "inc") {
+                let cart = await Cart.findOneAndUpdate(
+                    { cart: req.params.productId },
+                    { $inc: { quantity: 1 } },
+                    { new: true }
+                )
+                return res.status(200).json({
+                    error: false,
+                    data: {
+                        message: "Increased quantity in cart",
+                        cart
+                    }
+                })
+            }
+            if (actionType === "dec") {
+                let cart = await Cart.findOneAndUpdate(
+                    { cart: req.params.productId },
+                    { $inc: { quantity: -1 } },
+                    { new: true }
+                )
+                return res.status(200).json({
+                    error: false,
+                    data: {
+                        message: "Decreased quantity in cart",
+                        cart
+                    }
+                })
+            }
+        }
+        catch (error) {
+            return res.status(500).json({
+                error: true,
+                data: {
+                    message: "Internal server Error",
+                    error
+                }
+            })
+
+        }
 
     },
     removeToWishlist: async () => {
@@ -103,6 +157,11 @@ const userProduct = {
     },
 }
 
+// {
+//     user: req.user._id,
+//     cart: req.product._id,
+//     quantity: 2,
+// })
 
 
 module.exports = userProduct;
