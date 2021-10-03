@@ -11,7 +11,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "641395ea-ee0f-4981-aa1c-40c64ab263f0",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -30,7 +29,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "a3d553ca-be26-45e7-bea8-de4b461fc7a6",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -48,7 +46,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "2308921a-8e34-4a2c-b1a3-ce04127602d9",
     delivery: "2 days",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -66,7 +63,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "738b978b-8526-4bcd-94f1-8ffe5e049cb8",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -84,7 +80,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "b86f8bc9-7be9-41ee-9959-3d2a8ba12e4b",
     delivery: "4 days",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -102,7 +97,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "cc920078-996a-47ba-ba3f-9cebf27bb8e8",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -120,7 +114,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "3ff4eb2c-049b-4b24-ac05-5d799ba89b4f",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -138,7 +131,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "d99e7ae6-10b7-4681-9e97-75dfb6dace52",
     delivery: "3 days",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -155,7 +147,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "a723d889-98af-4a43-af04-b868ae8b32c4",
     delivery: "1 day",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -173,7 +164,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "54598f44-ffbd-4744-a2f8-20107332de71",
     delivery: "1 day",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -191,7 +181,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "3f23b32a-762a-4fcf-980f-9c1adcbb5f14",
     delivery: "2 days",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -209,7 +198,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "9ab89a7f-9b88-4219-afc9-d0df86a79755",
     delivery: "1 day",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -227,13 +215,12 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "80d26dc5-1467-4789-953d-441280fca5c6",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 },
 {
-    title: "Samsung Galaxy S10e 128 GB (Samsung)",
+    title: "Samsung Galaxy S10 128 GB (Samsung)",
     category: "phone",
     image: ["https://productimages.hepsiburada.net/s/25/280-413/10107307032626.jpg?v1", "https://productimages.hepsiburada.net/s/25/280-413/10107307065394.jpg?v1", "https://productimages.hepsiburada.net/s/25/280-413/10107307098162.jpg?v1", "https://productimages.hepsiburada.net/s/25/280-413/10107307130930.jpg?v1"],
     name: "samsung",
@@ -245,7 +232,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "8863c0f0-0bb9-428b-97b5-da52019d060e",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -263,7 +249,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "4d369677-092e-46d8-841b-c83dd395d341",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -281,7 +266,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "6249fac6-6e56-448e-aa00-9325342dca53",
     delivery: "1 day",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -299,13 +283,12 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "b1282af3-d9db-4a5b-bd2f-3676f4a531d7",
     delivery: "1 day",
     instock: false,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
 },
 {
-    title: "Xiaomi Mi 8 128 GB (Huawei)",
+    title: "Xiaomi Mi 8 128 GB (xiaomi)",
     category: "phone",
     image: ["https://productimages.hepsiburada.net/s/20/280-413/9873948540978.jpg?v1", "https://productimages.hepsiburada.net/s/20/280-413/9873948573746.jpg?v1", "https://productimages.hepsiburada.net/s/20/280-413/9873948606514.jpg?v1", "https://productimages.hepsiburada.net/s/20/280-413/9873948639282.jpg?v1"],
     name: "xiaomi",
@@ -317,7 +300,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "820a0874-1efe-4db1-8b09-27abae3584db",
     delivery: "5 days",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -335,7 +317,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "e97bae25-6dfe-4a5b-a7bd-a0d118369f42",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -353,7 +334,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "b855091b-ea8a-4c24-aaf2-24ba8948b660",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -371,7 +351,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "4e7a5934-1780-485c-bac5-eb2dea22b6f5",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -389,7 +368,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "f6fc51af-2fc6-407e-9162-1f89bc2365a3",
     delivery: "3 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -407,7 +385,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "cef60b92-00ae-400f-98ac-737513593f9c",
     delivery: "1 day",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
@@ -426,7 +403,6 @@ const data = [{
     display: "4.0 326 pixel density",
     battery: "1480 mAh",
     memory: "16GB, 32GB and RAM 1 GB",
-    id: "63f8aee7-0fae-46c4-a402-8f3d43d4fff7",
     delivery: "4 days",
     instock: true,
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."

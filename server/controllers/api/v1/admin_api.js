@@ -84,7 +84,7 @@ const adminApi = {
     },
     admin: (req, res) => {
         console.log("admin", req.user)
-        return res.status(200).send("hiii")
+        return res.status(200).json({ message: "Admin access approved", admin: req.user })
     },
     logout: (req, res) => {
         return res.header();

@@ -10,7 +10,7 @@ db.on("error", console.error.bind(console, "connection error"));
 
 db.once("open", function (err) {
     if (err) { console.log(err); }
-    console.log(chalk.bgRed.white(" Connected To Database Sucessgully  :) "));
+    console.log(chalk.bgRed.white(" Connected To Database Successfully :) "));
 });
 
 
