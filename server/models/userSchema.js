@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    userDetails: {
+    userInfo: {
         firstName: {
             type: String,
             required: true,
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         }
     },
 
-    contact: {
+    userContact: {
         email: {
             type: String,
             required: true,
@@ -33,15 +33,13 @@ const userSchema = new mongoose.Schema({
         mobileOne: {
             type: Number,
             required: true,
-            unique: true,
         },
         mobileTwo: {
             type: Number,
             required: true,
-            unique: true,
         }
     },
-    address: {
+    userAddress: {
         street: {
             type: String,
             required: true,
@@ -63,7 +61,7 @@ const userSchema = new mongoose.Schema({
             required: true,
         },
     },
-    encryPassword: {
+    password: {
         type: String,
         required: true,
     },
