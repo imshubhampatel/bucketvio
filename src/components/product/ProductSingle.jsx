@@ -18,13 +18,13 @@ export default function Cart() {
     const { product } = location.state
     const { image, title, price, camera, size, instock, cpu, weight, memory, display } = product;
     const [device, setDevice] = useState(image);
-
+    let imageArray = image[0].split(",");
 
     return (
         <div className="product-item-detail">
             <div className="phone-images images-detail">
                 <div className="images my-image">
-                    {image.map((item, index) => {
+                    {imageArray.map((item, index) => {
                         return <img key={index} className="img-clicked" onMouseEnter={() => setDevice(item)} src={item} alt="" />
                     })}
                 </div>
@@ -50,11 +50,11 @@ export default function Cart() {
                 <li>{camera}</li>
                 <li>{cpu}</li>
                 <li>{weight}</li>
-                <li className="price-seen"><span>₹{parseInt(price)},999</span></li>
+                <li className="price-seen"><span>₹{parseInt(price)}</span></li>
                 <li>{instock ? "Instock" : 'Out of stock'}</li>
                 <div className="phone-price">
-                    <p>₹ {parseInt(price)},999 <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
-                    <li>₹{parseInt((price * 1000))} </li><span>10% off</span>
+                    <p>₹ {parseInt(price)} <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" alt="" /></p>
+                    <li>₹{parseInt((price))} </li><span>10% off</span>
                 </div>
                 <div className="offer-details">
                     <p>Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardTC

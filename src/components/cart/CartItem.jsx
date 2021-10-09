@@ -30,7 +30,7 @@ export default function CartItem({ product }) {
                     <h3>{title}</h3>
                     <p>{memory}</p>
                     <p>Seller : SuperComNet <img src="./Images/flipcartassured.png" alt="" /></p>
-                    <h2>&#8377; {price.replace(".", ",")}<span>&#8377;<s>{`${(price.replace(".", ','))}`}</s></span> <span style={{ color: 'green' }}> 12%
+                    <h2>&#8377; {price}<span>&#8377;<s>{price}</s></span> <span style={{ color: 'green' }}> 12%
                         Off</span></h2>
                     <h4> <span style={{ marginLeft: "0", fontSize: "1.3rem", color: "green", fontWeight: "500" }}>3
                         offers applied</span></h4>

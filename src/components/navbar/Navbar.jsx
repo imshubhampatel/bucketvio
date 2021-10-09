@@ -71,7 +71,7 @@ export default function Navbar() {
                                                 userDetails === null
                                                     ? < span className="userLoggedIn">Loading..</span>
                                                     // : < span className="userLoggedIn">{`${userDetails.name}`}</span>}
-                                                    : < span className="userLoggedIn">{`${userDetails.name.slice(0, 7)}...`}</span>}
+                                                    : < span className="userLoggedIn">{`${userDetails.userInfo.firstName.slice(0, 7)}...`}</span>}
                                         </div>
                                     </div>)
                                     : (<Link to="/login">

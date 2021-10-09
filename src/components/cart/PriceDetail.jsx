@@ -12,7 +12,7 @@ export default function PriceDetail() {
         await useEffect(() => {
             setBalance(
                 cartItem.reduce((total, item) => {
-                    return total + parseInt(item.price.toString().replace(".", "")) * item.quantity;
+                    return total + item.price * item.quantity;
                 }, 0)
             );
         });

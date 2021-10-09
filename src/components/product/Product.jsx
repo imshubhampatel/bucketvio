@@ -53,10 +53,10 @@ export default function Product() {
             </aside>
             <div className="parent-product-item">
                 {
-                    listItem && listItem.map((item) => {
+                    listItem && listItem.map((item, index) => {
                         return (
                             <ProductList
-                                key={item.id}
+                                key={index}
                                 product={item}
                             />
                         )

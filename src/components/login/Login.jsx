@@ -27,10 +27,10 @@ export default function Login() {
         try {
             const promiseResult = await dispatch(fetchUser(userCrediential)).unwrap();
             console.log("rest in try", promiseResult)
-            dispatch(setSnackBar({ type: "check-circle", message: promiseResult.message }));
+            dispatch(setSnackBar({ type: "check-circle", message: promiseResult.data.message }));
         } catch (error) {
             console.log('err inside onSubmit', error)
-            dispatch(setSnackBar({ type: "times-circle", message: error.message }));
+            dispatch(setSnackBar({ type: "times-circle", message: error.data.message }));
         }
     }
 

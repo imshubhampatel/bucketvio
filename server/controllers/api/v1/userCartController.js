@@ -44,11 +44,11 @@ const userProduct = {
             })
         }
     },
+
     addToCart: async (req, res) => {
         try {
             let user = await User.findOne(req.user._id).populate("cartItems");
-            let cart = await Cart.findOne({ cart: req.product._id })
-            console.log(cart)
+            let cart = await Cart.findOne({ $and: [{ "user": req.user._id }, { "cart": req.product._id }] })
             if (cart) {
                 return res.status(400).json({
                     error: true,
@@ -65,12 +65,11 @@ const userProduct = {
                 })
                 await cart.save();
                 user.cartItems.push(cart);
-                user.save();
+                await user.save();
                 return res.status(200).json({
                     error: false,
                     data: {
                         message: "Added in cart sucessfully",
-                        user,
                         cart
                     }
                 })
@@ -88,12 +87,16 @@ const userProduct = {
 
     deleteFromCart: async (req, res) => {
         try {
-            let user = await User.findOne(req.user._id);
-            await Cart.remove({ cart: req.product._id });
+            let user = await User.findOne(req.user._id).populate("cartItems");
+            let cart = await Cart.findOne({ $and: [{ "user": req.user._id }, { "cart": req.product._id }] });
+            await cart.remove()
+            user.cartItems.pull(cart)
+            await user.save();
             return res.status(200).json({
                 error: false,
                 data: {
                     message: "Deleted from cart sucessfully",
+                    cart
                 }
             })
         } catch (error) {
@@ -107,15 +110,24 @@ const userProduct = {
         }
 
     },
+
     cartIncOrDec: async (req, res) => {
         const { actionType } = req.params;
         try {
             if (actionType === "inc") {
                 let cart = await Cart.findOneAndUpdate(
-                    { cart: req.params.productId },
+                    { $and: [{ user: req.user._id }, { cart: req.params.productId }] },
                     { $inc: { quantity: 1 } },
                     { new: true }
                 )
+                if (!cart) {
+                    return res.status(404).json({
+                        error: true,
+                        data: {
+                            message: "Product not found in cart",
+                        }
+                    })
+                }
                 return res.status(200).json({
                     error: false,
                     data: {
@@ -126,10 +138,18 @@ const userProduct = {
             }
             if (actionType === "dec") {
                 let cart = await Cart.findOneAndUpdate(
-                    { cart: req.params.productId },
+                    { $and: [{ user: req.user._id }, { cart: req.params.productId }] },
                     { $inc: { quantity: -1 } },
                     { new: true }
                 )
+                if (!cart) {
+                    return res.status(404).json({
+                        error: true,
+                        data: {
+                            message: "Product not found in cart",
+                        }
+                    })
+                }
                 return res.status(200).json({
                     error: false,
                     data: {
@@ -151,18 +171,8 @@ const userProduct = {
         }
 
     },
-    removeToWishlist: async () => {
-        return res.json({ data: "product remove to wishlist" })
-
-    },
+    
 }
-
-// {
-//     user: req.user._id,
-//     cart: req.product._id,
-//     quantity: 2,
-// })
-
 
 module.exports = userProduct;
 

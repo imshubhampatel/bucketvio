@@ -8,7 +8,6 @@ const userApi = {
     register: async (req, res) => {
         let form = formidable.IncomingForm();
         let formData = await getFromData(form, req);
-
         const { fields: {
             email,
             firstName,
@@ -36,8 +35,7 @@ const userApi = {
                 ]
             }, { userContact: 1, _id: 0 })
             console.log(user)
-
-            if (user) return res.status(400).json({ message: "User already Resgistered", data: { success: false, user } });
+            if (user) return res.status(400).json({ error: true, data: { message: "User already Resgistered", user } });
             if (!user) {
                 let hashPassword = await bcrypt.hashSync(password, 10);
                 user = await new User({
@@ -75,7 +73,7 @@ const userApi = {
                     httpOnly: true,
                 })
                 if (accessToken) {
-                    return res.status(200).json({ message: "User Resgister successfully", data: { success: true, token: accessToken } });
+                    return res.status(200).json({ error: false, data: { message: "User Resgister successfully", token: accessToken } });
                 }
             }
 
@@ -85,12 +83,13 @@ const userApi = {
         }
     },
     login: async (req, res) => {
+        console.log(req.body)
         const { email, password } = req.body;
         try {
             // finding the user in database 
             await User.findOne({ 'userContact.email': email }, async (err, user) => {
                 if (err) { console.log(err); }
-                else if (!user) res.status(404).json({ message: "Please register first", data: { token: null, success: false } });
+                else if (!user) res.status(404).json({ error: true, data: { message: "Please register first", token: null } });
                 // if user found then 
                 else if (user) {
                     console.log("found", user)
@@ -107,7 +106,7 @@ const userApi = {
                             httpOnly: true,
                             secure: true,
                         })
-                        return res.status(200).json({ message: "Login successully", data: { success: true, token: accessToken } });
+                        return res.status(200).json({ error: false, data: { message: "Login successully", token: accessToken } });
                     }
                 }
                 else {
@@ -140,16 +139,13 @@ const userApi = {
                     }
                     if (user) {
                         const accessToken = await jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
-                        return res.status(200).json(({ data: { success: true, accessToken: accessToken } }));
+                        return res.status(200).json(({ error: false, data: { accessToken: accessToken } }));
                     }
                 })
             }
         } catch (error) {
             return res.status(404).send(error)
-
         }
-
-
     }
 }
 

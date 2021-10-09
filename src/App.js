@@ -6,6 +6,7 @@ import { Cart, Wishlist, Login, Dashboard, Page404, ProductSingle } from './comp
 import Navbar from './components/navbar/Navbar';
 import SignUp from './components/login/SignUp';
 import ToastElement from './toast/ToastElements';
+import Profile from './components/Profile/Profile';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
       <ToastElement />
       <Switch>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/account/:userId" component={Profile} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/wishlist" component={Wishlist} />
         <Route exact path="/cart" component={Cart} />

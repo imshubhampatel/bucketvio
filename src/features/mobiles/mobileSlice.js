@@ -15,7 +15,7 @@ const mobileSlice = createSlice({
             state.loading = true;
         },
         getMobilesSuccess: (state, action) => {
-            const mobileIds = action.payload.map(item => item.id)
+            const mobileIds = action.payload.map(item => item._id)
             state.mobiles = action.payload;
             state.mobilesId = mobileIds;
             state.hasErrors = false;
@@ -38,10 +38,11 @@ export function fetchMobiles() {
         dispatch(getMobiles());
 
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/data/phones`);
+            const response = await fetch(`http://localhost:5000/api/v1/users/product`);
             const data = await response.json();
+            console.log(data)
             setTimeout(() => {
-                dispatch(getMobilesSuccess(data.data))
+                dispatch(getMobilesSuccess(data.data.allProducts))
             }, 1000)
         } catch (err) {
             dispatch(getMobilesFailure(err))
