@@ -88,7 +88,7 @@ const authSlice = createSlice({
         [fetchUser.fulfilled]: (state, { payload }) => {
             state.loading = false;
             state.accessToken = payload.data.token;
-            localStorage.setItem("isAuthenticated", JSON.stringify(payload.data.success));
+            localStorage.setItem("isAuthenticated", JSON.stringify(true));
             state.isAuthenticated = true;
         },
         [fetchUser.rejected]: (state, { payload }) => {
